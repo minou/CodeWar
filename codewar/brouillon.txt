@@ -6,4 +6,5 @@ void decode();
 
 /*execute l'instruction préalablement décoder*/
 void execute();
+
 /*BIG SWITCH!!!!*/
