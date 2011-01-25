@@ -1,0 +1,9 @@
+/*fetch instruction, passe à l'operation suivante*/
+void fetch();
+
+/*decodage de l'instruction*/
+void decode();
+
+/*execute l'instruction préalablement décoder*/
+void execute();
+/*BIG SWITCH!!!!*/

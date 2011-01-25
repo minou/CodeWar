@@ -3,30 +3,30 @@
 /*un "word" est une valeur sur 16bits*/
 typedef unsigned short word;
 
-/* la taille de la mémoire d'un CPU est de 256 octets*/
+/* the memory size of a CPU is 256 octets*/
 #define MEM_SIZE 256
-/* il y a 8 registres par CPU*/
+/* there are 8 registers in each CPU*/
 #define REG 8
 
-/*création et initialisation des 8 registres */
+/*creation & initialisation of the 8 registers*/
 word reg[REG] = {0};
 
-/*le compteur du pgm, PC, est le registre R6*/
+/*the program counter, PC, is the register R6*/
 #define PC 6
 
-/*le registre de pile, SP, est le registre R7*/
+/*the heap register, SP, is the register R7*/
 #define SP 7
 
-/*la memoire est un tableau de de 16mots de 16bits*/
-#define NB_LIGNES 16
-#define NB_COLONNES 16
+/*the memory is a table of 16 words of 16bits*/
+#define NB_LINES 16
+#define NB_COLUMNS 16
 
 char mem [MEM_SIZE];
 
-/*flags du CPU, indique son état*/
-int c;/*flag de retenue, =1 si une op a généré une retenue*/
-int z;/*flag de zero-itude, =1 si le resultat d'une op est = 0*/
-int n;/*flag de négativité, =1 si le resultat d'une op est < 0*/
+/*CPU flags, indicates his state*/
+int c;/*carry flag, =1 if a op generates a carry*/
+int z;/*zero flag, =1 if the result of an op is = 0*/
+int n;/*negativity flag, =1 if the result of an op is < 0*/
 
 char l [17] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
 
