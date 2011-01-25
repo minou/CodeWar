@@ -5,6 +5,7 @@ typedef struct word
 
 typedef struct CPU
 {
+    int color;
     char RAM[256];
     word registers[8];
 } CPU;
