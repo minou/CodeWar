@@ -10,3 +10,4 @@ typedef struct CPU
 } CPU;
 
 void display_grid(CPU grid[256]);
+void free2(char ** line);
