@@ -3,6 +3,8 @@
 int main(int args , char ** argv)
 {
     CPU grid[256];
+    /*char ** stock_hexa;*/
+    
     display_grid(grid);
 
     setMem();
@@ -10,9 +12,8 @@ int main(int args , char ** argv)
     setReg();
     displayReg();
 
-    char ** stock_hexa;
-    openFile(argv[1], stock_hexa);
-    //printf("%s\n", stock_hexa[0]);
+    /*openFile(argv[1], stock_hexa);*/
+    /*printf("%s\n", stock_hexa[0]);*/
 
     return 0;
 }

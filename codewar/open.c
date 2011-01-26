@@ -2,6 +2,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <unistd.h>
 
 #define SIZE_BUFFER 16
 
@@ -19,9 +20,9 @@ int openFile(char * file, char ** stock_hexa){
             return -1;
         }
         for (i = 0; i < r; i++){
-            //stock_hexa[i] = buffer[i];
+            /*stock_hexa[i] = buffer[i];*/
             printf("%02x\n", buffer[i]);
-            //printf("%02x\n", stock_hexa[i]);
+            /*printf("%02x\n", stock_hexa[i]);*/
         }
     }
     return 0;
