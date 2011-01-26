@@ -97,6 +97,6 @@ void free2(char ** line)
 color get_color(CPU cpu)
 {
     color color;
-    color.color = 0;
+    /*color.color = "0";*/
     return color;
 }
