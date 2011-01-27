@@ -6,6 +6,10 @@
 /* there are 8 registers in each CPU*/
 #define REG 8
 
+#define HEXA 16
+
+#define NB_CPU 256
+
 typedef struct word
 {
     char number[16];
@@ -27,7 +31,7 @@ typedef struct color
 }color;
 
 /* FIle displayGrid */
-void display_grid(CPU grid[256]);
+void display_grid(CPU grid[NB_CPU]);
 void free2(char ** line);
 color get_color(CPU cpu);
 
@@ -38,5 +42,10 @@ void setReg();
 void displayReg();
 
 /* File open */
-int openFile(char * file, char ** stock_hexa);
+int openFile(char * file, unsigned char ** stock_hexa);
 int reverse(char ** buffer);
+
+/* Load */
+CPU randomCPU(CPU tab[NB_CPU]);
+color randomColor();
+int load_program(CPU grid[NB_CPU], unsigned char ** stock_hexa);
