@@ -7,6 +7,7 @@
 #define REG 8
 
 #define HEXA 16
+#define SIZE_BUFFER 15
 
 #define NB_CPU 256
 

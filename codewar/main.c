@@ -31,6 +31,7 @@ int main(int args , char ** argv)
     /* Open and load program in CPU */
     if (strcmp(option, "-f") == 0){
         openFile(argv[2], stock_hexa);
+        load_program(grid, stock_hexa);
     }
 
     return 0;

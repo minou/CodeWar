@@ -1,6 +1,7 @@
 #include "struct.h"
 #include <stdlib.h>
 #include <time.h>
+#include <stdio.h>
 
 CPU randomCPU(CPU tab[NB_CPU]){
     srand(time(NULL));
@@ -19,6 +20,21 @@ color randomColor(){
 }
 
 int load_program(CPU grid[NB_CPU], unsigned char ** stock_hexa){
-    /*CPU p = randomCPU(grid);*/
+    int l, c;
+    int i = 16;
+    CPU p = randomCPU(grid);
+    printf("%s\n", "Avant while");
+    while (i < (HEXA * SIZE_BUFFER)){
+        l = (i / HEXA) - 1;
+        c = i % HEXA;
+        printf("l = %d c = %d\n", l, c);
+        /*if (stock_hexa[l][c] == NULL){*/
+            /*printf("l = %d c = %d\n", l, c);*/
+        /*}*/
+        printf("%02x\n", stock_hexa[l][c]);
+        p.RAM[i] = stock_hexa[l][c];
+        i++;
+    }
+    printf("%s\n", "Aprés while");
     return 0;
 }
