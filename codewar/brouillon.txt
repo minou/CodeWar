@@ -8,12 +8,3 @@ void decode();
 void execute();
 
 /*BIG SWITCH!!!!*/
-
-CPU tab[256];
-int fd = open(FILE);
-
-int load_program(int fd, CPU p);
-
-CPU random_CPU(tab);
-
-color random_color();
