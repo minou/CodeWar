@@ -1,19 +1,37 @@
 #include "struct.h"
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 int main(int args , char ** argv)
 {
-    CPU grid[256];
-    /*char ** stock_hexa;*/
+    char * option = argv[1];
+
+    CPU grid[NB_CPU];
+    unsigned char ** stock_hexa = malloc(15 * sizeof(unsigned char *));
+
+    if (option == NULL){
+        printf("%s\n", "Usage: ./main -option");
+        return -1;
+    }
     
-    display_grid(grid);
+    /* Display grid */
+    if (strcmp(option, "-g") == 0){
+        display_grid(grid);
+    }
 
-    setMem();
-    displayCPU();
-    setReg();
-    displayReg();
+    /* Display CPU */
+    if (strcmp(option, "-c") == 0){
+        setMem();
+        displayCPU();
+        setReg();
+        displayReg();
+    }
 
-    /*openFile(argv[1], stock_hexa);*/
-    /*printf("%s\n", stock_hexa[0]);*/
+    /* Open and load program in CPU */
+    if (strcmp(option, "-f") == 0){
+        openFile(argv[2], stock_hexa);
+    }
 
     return 0;
 }
