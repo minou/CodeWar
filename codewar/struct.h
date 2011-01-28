@@ -18,7 +18,7 @@ typedef struct word
 
 typedef struct CPU
 {
-    char RAM[MEM_SIZE];
+    unsigned char RAM[MEM_SIZE];
     word registers[REG];
     /*CPU flags, indicates his state*/
     int c;/*carry flag, =1 if a op generates a carry*/
@@ -28,13 +28,14 @@ typedef struct CPU
 
 typedef struct color
 {
-    char color[4];
+    unsigned char color[4];
 }color;
 
 /* FIle displayGrid */
 void display_grid(CPU grid[NB_CPU]);
 void free2(char ** line);
 color get_color(CPU cpu);
+int cmp_color(color color_cpu);
 
 /* File displayCPU */
 void setMem();
@@ -50,3 +51,8 @@ int reverse(char ** buffer);
 CPU randomCPU(CPU tab[NB_CPU]);
 color randomColor();
 int load_program(CPU grid[NB_CPU], unsigned char ** stock_hexa);
+
+/* File init */
+int init(CPU grid[NB_CPU]);
+void setMem(CPU cpu);
+void setReg(CPU cpu);

@@ -52,14 +52,13 @@ void display_grid(CPU grid[256])
     {
         while ((nb % nb_line) != 0){
             char string[4];
-            /*color color = get_color(grid[nb]);*/
-            /*if (color.color == 0){*/
-                /*strcat(string, "   ");*/
-            /*}*/
-            /*else{*/
-                /*sprintf(string, "%d", color.color);*/
-            /*}*/
-            sprintf(string, "%d", 0);
+            color color = get_color(grid[nb]);
+            if (cmp_color(color) == 0){
+                strcat(string, "   ");
+            }
+            else{
+                sprintf(string, "%s", color.color);
+            }
             strcat(line[i], string);
             strcat(line[i], "|");
             nb++;
@@ -96,7 +95,22 @@ void free2(char ** line)
 
 color get_color(CPU cpu)
 {
+    int i = 0;
     color color;
-    /*color.color = "0";*/
+    while (i < 4){
+        color.color[i] = cpu.RAM[2 + i];
+        i++;
+    }
     return color;
+}
+
+int cmp_color(color color_cpu){
+    int i = 0;
+    while (i < 4){
+        if (color_cpu.color[i] != 205){
+            return 1;
+        }
+        i++;
+    }
+    return 0;
 }
