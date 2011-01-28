@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "struct.h"
+#include <stdio.h>
 
 /*a "word" est une valeur sur 16bits*/
 word w;
@@ -10,20 +10,10 @@ word w;
 /*the heap register, SP, is the register R7*/
 #define SP 7
 
-CPU cpu;
-
 char l [16] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
 
-/*initialisation of the CPU memory*/
-void setMem(){
-    int i,nb;
-    nb = 205;/*CD*/
-    for(i = 0;i<MEM_SIZE;i++){
-        cpu.RAM[i] = nb;
-    }
-}
 /*affichage de l'état de la mémoire du CPU*/
-void displayCPU(){
+void displayCPU(CPU cpu){
     int i,j;
     int k;
     printf("---------+-------------------------------------------------------------------");
@@ -49,17 +39,10 @@ void displayCPU(){
     printf("---------+-------------------------------------------------------------------");
     printf("\n");
 }
-/*initialisation of the 8 registers*/
-void setReg(){
-    int i,nb;
-    nb = 51966;
-    for(i = 0;i<REG;i++){
-        sprintf((cpu.registers[i]).number, "%x", nb);
-    }
-}
+
 /*display the 8 registers*/
-void displayReg(){
-    int i;     
+void displayReg(CPU cpu){
+    int i;
     for(i = 0;i<REG;i++){
         printf("  R%d: 0x%s\n",i,cpu.registers[i].number);
     }   

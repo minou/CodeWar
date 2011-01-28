@@ -3,11 +3,12 @@ EXEC=main
 
 all: $(EXEC)
 
-main: main.o open.o load.o displayGrid.o displayCPU.o
+main: main.o init.o open.o load.o displayGrid.o displayCPU.o
 
 main.o: main.c struct.h
-open.o: open.c
-load.o: load.c
+init.o: init.c struct.h
+open.o: open.c struct.h
+load.o: load.c struct.h
 displayGrid.o: displayGrid.c struct.h
 displayCPU.o: displayCPU.c struct.h
 

@@ -8,16 +8,9 @@ int main(int args , char ** argv)
     char * option = argv[1];
 
     CPU grid[NB_CPU];
-    int i = 0;
-    /* Init CPU */
-    unsigned char RAM[MEM_SIZE];
-
-    while (i < NB_CPU){
-        grid[i].RAM = RAM;
-        i++;
-    }
-
     unsigned char ** stock_hexa = malloc(15 * sizeof(unsigned char *));
+
+    init(grid);
 
     if (option == NULL){
         printf("%s\n", "Usage: ./main -option");
@@ -31,10 +24,8 @@ int main(int args , char ** argv)
 
     /* Display CPU */
     if (strcmp(option, "-c") == 0){
-        setMem();
-        displayCPU();
-        setReg();
-        displayReg();
+        displayCPU(argv[2]);
+        displayReg(argv[2]);
     }
 
     /* Open and load program in CPU */
