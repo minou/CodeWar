@@ -33,15 +33,13 @@ typedef struct color
 
 /* FIle displayGrid */
 void display_grid(CPU grid[NB_CPU]);
-void free2(char ** line);
+void free2(unsigned char ** line);
 color get_color(CPU cpu);
 int cmp_color(color color_cpu);
 
 /* File displayCPU */
-void setMem();
-void displayCPU();
-void setReg();
-void displayReg();
+void displayCPU(CPU cpu);
+void displayReg(CPU cpu);
 
 /* File open */
 int openFile(char * file, unsigned char ** stock_hexa);
@@ -53,6 +51,6 @@ color randomColor();
 int load_program(CPU grid[NB_CPU], unsigned char ** stock_hexa);
 
 /* File init */
-int init(CPU grid[NB_CPU]);
+int init(CPU * grid);
 void setMem(CPU cpu);
 void setReg(CPU cpu);

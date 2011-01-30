@@ -7,8 +7,9 @@ int main(int args , char ** argv)
 {
     char * option = argv[1];
 
-    CPU grid[NB_CPU];
-    unsigned char ** stock_hexa = malloc(15 * sizeof(unsigned char *));
+    CPU  * grid = malloc(NB_CPU * sizeof(CPU));
+
+    /*unsigned char ** stock_hexa = malloc(15 * sizeof(unsigned char *));*/
 
     init(grid);
 
@@ -24,15 +25,18 @@ int main(int args , char ** argv)
 
     /* Display CPU */
     if (strcmp(option, "-c") == 0){
-        displayCPU(argv[2]);
-        displayReg(argv[2]);
+        int nb = atoi(argv[2]);
+        displayCPU(grid[nb]);
+        displayReg(grid[nb]);
     }
 
     /* Open and load program in CPU */
     if (strcmp(option, "-f") == 0){
-        openFile(argv[2], stock_hexa);
-        load_program(grid, stock_hexa);
+        /*openFile(argv[2], stock_hexa);*/
+        /*load_program(grid, stock_hexa);*/
     }
+
+    free(grid);
 
     return 0;
 }

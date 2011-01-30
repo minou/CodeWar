@@ -3,10 +3,12 @@
 
 /*initialisation of the CPU memory*/
 void setMem(CPU cpu){
-    int i, nb;
-    nb = 205; /*CD*/
-    for(i = 0; i < MEM_SIZE; i++){
+    int i = 0;
+    /*CD*/
+    int nb = 205;
+    while (i < MEM_SIZE){
         cpu.RAM[i] = nb;
+        i++;
     }
 }
 
@@ -15,11 +17,11 @@ void setReg(CPU cpu){
     int i,nb;
     nb = 51966;
     for(i = 0; i < REG; i++){
-        sprintf((cpu.registers[i]).number, "%x", nb);
+        sprintf((cpu.registers[i]).number, "%2x", nb);
     }
 }
 
-int init(CPU grid[NB_CPU]){
+int init(CPU * grid){
     int i = 0;
     while (i < NB_CPU){
         setMem(grid[i]);
