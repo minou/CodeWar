@@ -7,7 +7,7 @@ int main(int args , char ** argv)
 {
     char * option;
 
-    CPU  * grid = malloc(NB_CPU * sizeof(CPU *));
+    CPU  * grid = malloc(NB_CPU * sizeof(CPU));
 
     /*unsigned char ** stock_hexa = malloc(15 * sizeof(unsigned char *));*/
 
