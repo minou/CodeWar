@@ -1,9 +1,6 @@
 #include "struct.h"
 #include <stdio.h>
 
-/*a "word" est une valeur sur 16bits*/
-word w;
-
 /*the program counter, PC, is the register R6*/
 #define PC 6
 
@@ -29,7 +26,7 @@ void displayCPU(CPU cpu){
     for(i = 0; i < 16; i++){
         printf("|  0x%c0  |",l[i]);
         for(j = 0; j<16; j++){
-            printf("%4x", cpu.RAM[(i * 16 )+ j]);
+            printf("%4x", cpu.RAM[i]);
             if(j == 15){
                 printf("  |");
                 printf("\n");

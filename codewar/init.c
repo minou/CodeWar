@@ -14,10 +14,10 @@ void setMem(CPU cpu){
 
 /*initialisation of the 8 registers*/
 void setReg(CPU cpu){
-    int i,nb;
+    int i, nb, s;
     nb = 51966;
     for(i = 0; i < REG; i++){
-        sprintf((cpu.registers[i]).number, "%2x", nb);
+        s = sprintf((cpu.registers[i]).number, "%2x", nb);
     }
 }
 

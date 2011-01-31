@@ -5,14 +5,15 @@
 
 int main(int args , char ** argv)
 {
-    char * option = argv[1];
+    char * option;
 
-    CPU  * grid = malloc(NB_CPU * sizeof(CPU));
+    CPU  * grid = malloc(NB_CPU * sizeof(CPU *));
 
     /*unsigned char ** stock_hexa = malloc(15 * sizeof(unsigned char *));*/
 
     init(grid);
 
+    option = argv[1];
     if (option == NULL){
         printf("%s\n", "Usage: ./main -option");
         return -1;
@@ -25,7 +26,14 @@ int main(int args , char ** argv)
 
     /* Display CPU */
     if (strcmp(option, "-c") == 0){
-        int nb = atoi(argv[2]);
+        int nb;
+        if (argv[2] == NULL){
+            return -1;
+        }
+        nb = atoi(argv[2]);
+        if (nb < 0 || nb >= NB_CPU){
+            return -1;
+        }
         displayCPU(grid[nb]);
         displayReg(grid[nb]);
     }
