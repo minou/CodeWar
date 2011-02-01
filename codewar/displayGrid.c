@@ -15,8 +15,8 @@ void display_grid(CPU grid[256])
     int nb_malloc = NB_MALLOC;
 
     char ** line = malloc(nb_malloc * sizeof(char *));
-    
-    
+
+
     /* Init */
     while (i < nb_malloc - 1)
     {
@@ -26,7 +26,7 @@ void display_grid(CPU grid[256])
 
     line[0] = "   +----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+";
     line[nb_malloc -1]  = "     0    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15";
-    
+
     i = 1;
     while (i < nb_malloc - 1)
     {
@@ -45,23 +45,22 @@ void display_grid(CPU grid[256])
         }
         i++;
     }
-    
+
     /* Display color */
     i = 1;
     while (i < nb_malloc - 1)
     {
         while ((nb % nb_line) != 0){
-            /*unsigned char string[4];*/
-/*            color color = get_color(grid[nb]);*/
-            /*if (cmp_color(color) == 0){*/
-                /*strcat(string, "   ");*/
-            /*}*/
-            /*else{*/
-            /*sprintf(string, "%s", color.color);*/
-            /*}*/
-            /*printf("%s \n", color.color);*/
-            /*line[i] = color.color;*/
-            /*strcat(line[i], "|");*/
+            char str[4];
+            color color = get_color(grid[nb]);
+            if (cmp_color(color) == 0){
+                strcat(line[i], "    ");
+            }
+            else{
+                sprintf(str, "%s", color.color);
+                strcat(line[i], str);
+            }
+            strcat(line[i], "|");
             nb++;
         }
         nb++;
@@ -85,7 +84,7 @@ void display_grid(CPU grid[256])
 void free2(char ** line)
 {
     int i = 1;
-    
+
     while (i < NB_MALLOC - 1)
     {
         free(line[i]);
