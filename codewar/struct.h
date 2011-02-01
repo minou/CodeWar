@@ -6,7 +6,7 @@
 /* there are 8 registers in each CPU*/
 #define REG 8
 
-#define HEXA 16
+#define HEXA 1
 #define SIZE_BUFFER 15
 
 #define NB_CPU 256
@@ -33,7 +33,7 @@ typedef struct color
 
 /* FIle displayGrid */
 void display_grid(CPU grid[NB_CPU]);
-void free2(char ** line);
+void free2(unsigned char ** line);
 color get_color(CPU cpu);
 int cmp_color(color color_cpu);
 
