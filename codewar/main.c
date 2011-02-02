@@ -7,13 +7,8 @@
 int main(int args , char ** argv)
 {
     char * option;
-
     CPU  grid [256]; 
     
-    /*int size = sizeof(CPU);
-    printf("%d\n",size);*/
-    /*unsigned char ** stock_hexa = malloc(15 * sizeof(unsigned char *));*/
-
     init(grid);
 
     option = argv[1];
@@ -23,9 +18,9 @@ int main(int args , char ** argv)
     }
     
     /* Display grid */
-    /*if (strcmp(option, "-g") == 0){
+    if (strcmp(option, "-g") == 0){
         display_grid(grid);
-    }*/
+    }
 
     /* Display CPU */
     if (strcmp(option, "-c") == 0){
