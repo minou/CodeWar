@@ -8,7 +8,7 @@ int main(int args , char ** argv)
 {
     char * option;
     CPU  grid [256]; 
-    
+
     init(grid);
 
     option = argv[1];
@@ -16,7 +16,7 @@ int main(int args , char ** argv)
         printf("%s\n", "Usage: ./main -option");
         return -1;
     }
-    
+
     /* Display grid */
     if (strcmp(option, "-g") == 0){
         display_grid(grid);
@@ -35,16 +35,16 @@ int main(int args , char ** argv)
         displayCPU(grid[nb]);
         displayReg(grid[nb]);
     }
+
     /* Open and load program in CPU */
     if (strcmp(option, "-f") == 0){
-	  char * file = "output";	
-	  CPU cpu = randomCPU(grid);
-	  open_load_File(file, &cpu);
-	  displayCPU(cpu);
-	  printf("\n");	  
+        char * file = "output";	
+        CPU cpu = randomCPU(grid);
+        open_load_File(file, &cpu);
+        display_grid(grid);
+        displayCPU(cpu);
+        printf("\n");	  
     }
-
-    /*free(grid);*/
 
     return 0;
 }

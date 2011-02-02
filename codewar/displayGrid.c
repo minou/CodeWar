@@ -51,26 +51,20 @@ void display_grid(CPU * grid)
     while (i < nb_malloc - 1)
     {
         while (nb != nb_line){
-            char str[20] ;
-            color color = get_color(grid[nb]);
+            char str[4] ;
+            color color = get_color(grid[16 * i + nb]);
 
             if (cmp_color(color) == 0){
                 strcat(line[i], "    ");
             }
             else{
-		printf("line 64\n");
-                str[0] = (char) color.color[0].number;
-                str[4] = (char) color.color[1].number;
-		printf("line 67\n");
+                str[0] = (char) color.color[0];
+                str[2] = (char) color.color[1];
                 strcat(line[i], str);
-		printf("line 66\n");
             }
             strcat(line[i], "|");
-	    printf("line 69\n");
             nb++;
-	    printf("line 69\n");
         }
-        printf("line 72\n");
         nb = 0;
         i++;
     }
@@ -106,7 +100,7 @@ color get_color(CPU cpu)
     int i = 0;
     color color;
     while (i < 2){
-	  color.color[i] = cpu.RAM[2 + i];
+        color.color[i] = cpu.RAM[2 + i];
         i++;
     }
     return color;
@@ -114,7 +108,7 @@ color get_color(CPU cpu)
 
 int cmp_color(color color_cpu){
     unsigned char cd = 205;
-    if ((color_cpu.color[0].number != cd) && (color_cpu.color[1].number != cd)){
+    if ((color_cpu.color[0] != cd) && (color_cpu.color[1] != cd)){
         return 1;
     }
     return 0;

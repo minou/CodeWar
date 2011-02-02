@@ -5,20 +5,17 @@
 #include <stdio.h>
 
 CPU  randomCPU(CPU * grid){
-      int nb = rand()%NB_CPU;
-      srand(time(NULL));
-      return grid[nb];
+    srand(time(NULL));
+    return grid[rand()%NB_CPU];
 }
 
 color randomColor(){
-      int i = 0;
-      color randColor;
-      srand(time(NULL));
-      while (i < 2){
-	    randColor.color[i] = rand()%HEXA;
-	    i++;
-      }
-      return randColor;
-
+    int i = 0;
+    color randColor;
+    srand(time(NULL));
+    while (i < 2){
+        randColor.color[i] = rand()%HEXA;
+        i++;
+    }
+    return randColor;
 }
-
