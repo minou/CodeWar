@@ -1,13 +1,13 @@
 #include "struct.h"
+#include "prototype.h"
 #include <stdio.h>
 
 /*initialisation of the CPU memory*/
-void setMem(CPU *cpu){
+void setMem(CPU * cpu){
     int i = 0;
-    /*CD*/
-    int nb = 205;
+    int nb = 205;/*CD*/
     while (i < MEM_SIZE){
-        (cpu->RAM[i]).number = nb;
+        (cpu->RAM[i]).number = nb; 	
         i++;
     }
 }

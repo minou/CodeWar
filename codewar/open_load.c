@@ -1,4 +1,5 @@
 #include "struct.h"
+#include "prototype.h"
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -11,17 +12,18 @@
 * return -1 if there is an error
 */
 int open_load_File(char * file, CPU * cpu){
-     int fd, r, i = 0;
+     int fd, r, i = 16;
      unsigned char * buffer = malloc(HEXA);
      
      fd = open(file, O_RDONLY);
+     printf("open_18");
      if (fd == -1){
 	  perror("open_in_open_load");
 	  return -1;
      }
-     /*we want to read 200bits and then store it in the CPU
-     * the first 16octets are reserved for the the registers
-     * so we start at 17 (in the CPU) to load the program
+     /*we want to read 240octet and then store it in the CPU
+     * the first 16 octets are reserved for the the registers and the color
+     * so we start at 16 (in the CPU) to load the program
      * this means that the program cannot weight more than 240octets???
      * we need to know the length of the file 
      */
@@ -40,6 +42,7 @@ int open_load_File(char * file, CPU * cpu){
      printf("\n");
      return 0;
 }
+
 int get_file_size(char *file_name){
     FILE *fp;
     int file_size;
