@@ -7,17 +7,22 @@ void setMem(CPU cpu){
     /*CD*/
     int nb = 205;
     while (i < MEM_SIZE){
-        cpu.RAM[i] = nb;
+        cpu.RAM[i].number = nb;
         i++;
     }
 }
 
 /*initialisation of the 8 registers*/
 void setReg(CPU cpu){
-    int i, nb, s;
+    int i, nb, ca, fe;
     nb = 51966;
+    ca = 202;
+    fe = 254;
     for(i = 0; i < REG; i++){
-        s = sprintf((cpu.registers[i]).number, "%2x", nb);
+        /*sprintf((cpu.registers[i]).reg[0].number, "%2x", ca);*/
+        /*sprintf((cpu.registers[i]).reg[1].number, "%2x", fe);*/
+        cpu.registers[i].reg[0].number = ca;
+        cpu.registers[i].reg[1].number = fe;
     }
 }
 

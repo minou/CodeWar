@@ -57,7 +57,7 @@ void display_grid(CPU grid[256])
                 strcat(line[i], "    ");
             }
             else{
-                sprintf(str, "%s", color.color);
+                str = (char) color.color;
                 strcat(line[i], str);
             }
             strcat(line[i], "|");
@@ -106,7 +106,7 @@ color get_color(CPU cpu)
 
 int cmp_color(color color_cpu){
     int i = 0;
-    while (i < 4){
+    while (i < 2){
         if (color_cpu.color[i] != 205){
             return 1;
         }

@@ -13,13 +13,18 @@
 
 typedef struct word
 {
-    char number[16];
+    unsigned char number;
 } word;
+
+typedef struct regist
+{
+    word reg[2];
+} regist;
 
 typedef struct CPU
 {
-    unsigned char RAM[MEM_SIZE];
-    word registers[REG];
+    word RAM[MEM_SIZE];
+    regist registers[REG];
     /*CPU flags, indicates his state*/
     int c;/*carry flag, =1 if a op generates a carry*/
     int z;/*zero flag, =1 if the result of an op is = 0*/
@@ -28,12 +33,12 @@ typedef struct CPU
 
 typedef struct color
 {
-    unsigned char color[4];
+    word color[2];
 }color;
 
 /* FIle displayGrid */
 void display_grid(CPU grid[NB_CPU]);
-void free2(unsigned char ** line);
+void free2(char ** line);
 color get_color(CPU cpu);
 int cmp_color(color color_cpu);
 
