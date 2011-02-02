@@ -58,8 +58,8 @@ void display_grid(CPU * grid)
                 strcat(line[i], "    ");
             }
             else{
-                str[0] = (char) color.color[0];
-                str[2] = (char) color.color[1];
+                str[0] = (char) color.word[0];
+                str[2] = (char) color.word[1];
                 strcat(line[i], str);
             }
             strcat(line[i], "|");
@@ -100,7 +100,7 @@ color get_color(CPU cpu)
     int i = 0;
     color color;
     while (i < 2){
-        color.color[i] = cpu.RAM[2 + i];
+        color.word[i] = cpu.RAM[2 + i];
         i++;
     }
     return color;
@@ -108,7 +108,7 @@ color get_color(CPU cpu)
 
 int cmp_color(color color_cpu){
     unsigned char cd = 205;
-    if ((color_cpu.color[0] != cd) && (color_cpu.color[1] != cd)){
+    if ((color_cpu.word[0] != cd) && (color_cpu.word[1] != cd)){
         return 1;
     }
     return 0;

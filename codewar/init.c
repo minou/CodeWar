@@ -14,8 +14,8 @@ void setMem(CPU * cpu){
 
 void setColor(CPU * cpu){
     color c = randomColor();
-    cpu->RAM[1] = c.color[0];
-    cpu->RAM[2] = c.color[1];
+    cpu->RAM[1] = c.word[0];
+    cpu->RAM[2] = c.word[1];
 }
 
 /*initialisation of the 8 registers*/
@@ -25,8 +25,8 @@ void setReg(CPU * cpu){
     ca = 202;
     fe = 254;
     while (i < REG){
-        cpu->registers[i][0] = ca;
-        cpu->registers[i][1] = fe;
+        cpu->registers[i].word[0] = ca;
+        cpu->registers[i].word[1] = fe;
         i++;
     }
 }

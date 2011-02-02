@@ -11,20 +11,19 @@
 
 #define NB_CPU 256
 
-typedef unsigned char word;
+typedef struct word
+{
+    unsigned char word[2];
+}word;
 
 typedef struct CPU
 {
-    word RAM[MEM_SIZE];
-    word registers[REG][2];
+    unsigned char RAM[MEM_SIZE];
+    word registers[REG];
     /*CPU flags, indicates his state*/
     int c;/*carry flag, =1 if a op generates a carry*/
     int z;/*zero flag, =1 if the result of an op is = 0*/
     int n;/*negativity flag, =1 if the result of an op is < 0*/
 } CPU;
 
-typedef struct color
-{
-    word color[2];
-}color;
-
+typedef word color;

@@ -14,7 +14,7 @@ color randomColor(){
     color randColor;
     srand(time(NULL));
     while (i < 2){
-        randColor.color[i] = rand()%HEXA;
+        randColor.word[i] = rand()%HEXA;
         i++;
     }
     return randColor;
