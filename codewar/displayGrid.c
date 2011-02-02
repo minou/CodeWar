@@ -2,13 +2,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "struct.h"
+#include "prototype.h"
 
 #define NB_MALLOC 18
 
 /* Méthode permettant d'afficher le plateau */
-void display_grid(CPU ** grid)
+void display_grid(CPU * grid)
 {
-    int nb = 1;
+    int nb = 0;
     int i = 1;
     int nb_line = NB_LINE;
     int nb_column = NB_COLUMN;
@@ -16,12 +17,10 @@ void display_grid(CPU ** grid)
 
     char ** line = malloc(nb_malloc * sizeof(char *));
 
-
-            printf("line 60");
     /* Init */
     while (i < nb_malloc - 1)
     {
-        line[i] = malloc(5 * nb_column + 1);
+        line[i] = malloc(10 * nb_column + 1);
         i++;
     }
 
@@ -51,23 +50,28 @@ void display_grid(CPU ** grid)
     i = 1;
     while (i < nb_malloc - 1)
     {
-        while ((nb % nb_line) != 0){
-            char * str;
+        while (nb != nb_line){
+            char str[20] ;
             color color = get_color(grid[nb]);
-            printf("line 60");
+
             if (cmp_color(color) == 0){
                 strcat(line[i], "    ");
             }
             else{
-                printf("line 60");
-                str += color.color[0].number;
-                str += color.color[1].number;
+		printf("line 64\n");
+                str[0] = (char) color.color[0].number;
+                str[4] = (char) color.color[1].number;
+		printf("line 67\n");
                 strcat(line[i], str);
+		printf("line 66\n");
             }
             strcat(line[i], "|");
+	    printf("line 69\n");
             nb++;
+	    printf("line 69\n");
         }
-        nb++;
+        printf("line 72\n");
+        nb = 0;
         i++;
     }
 
@@ -97,12 +101,12 @@ void free2(char ** line)
     free(line);
 }
 
-color get_color(CPU * cpu)
+color get_color(CPU cpu)
 {
     int i = 0;
     color color;
     while (i < 2){
-        color.color[i] = cpu->RAM[2 + i];
+	  color.color[i] = cpu.RAM[2 + i];
         i++;
     }
     return color;
