@@ -26,7 +26,7 @@ void displayCPU(CPU cpu){
     for(i = 0; i < 16; i++){
         printf("|  0x%c0  |",l[i]);
         for(j = 0; j<16; j++){
-            printf("%4x", cpu.RAM[i]);
+            printf("%4x", cpu.RAM[16 * i + j].number);
             if(j == 15){
                 printf("  |");
                 printf("\n");
@@ -41,7 +41,7 @@ void displayCPU(CPU cpu){
 void displayReg(CPU cpu){
     int i = 0;
     while (i < REG){
-        printf("  R%d: 0x%s\n", i, cpu.registers[i].number);
+        printf("  R%d: 0x%2x%2x	\n", i, cpu.registers[i].reg[0].number, cpu.registers[i].reg[1].number);
         i++;
     }
 }

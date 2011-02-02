@@ -31,7 +31,7 @@ int open_load_File(char * file, CPU cpu){
 	       return -1;
 	  }
 	  if (r > 0){
-            cpu.RAM[i] = buffer[0];/*store octet by octet in the memory*/
+            cpu.RAM[i].number = buffer[0];/*store octet by octet in the memory*/
 	    i++;
 	  }
 
@@ -57,25 +57,3 @@ int get_file_size(char *file_name){
 
     return(file_size);
  }
-     int main(int args , char ** argv){
-	  char * file = "output";
-	  CPU cpu;	
-	  int i ;
-	  open_load_File(file, cpu);
-
-	  /*for (i = 0; i<MEM_SIZE; i++){
-	       printf("%02x", cpu.RAM[i]);
-	       if( (i%15) == 0){
-		   printf("\n"); 
-	       }
-	  }*/
-	  displayCPU(cpu);
-	  printf("\n");
-	  return 0;
-	  
-     }
-     
-  
-  
-  
-	
