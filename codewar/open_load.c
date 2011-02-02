@@ -32,10 +32,12 @@ int open_load_File(char * file, CPU cpu){
 	  }
 	  if (r > 0){
             cpu.RAM[i].number = buffer[0];/*store octet by octet in the memory*/
+	    printf("	%02x", cpu.RAM[i].number);
 	    i++;
+	    
 	  }
-
      }
+     printf("\n");
      return 0;
 }
 int get_file_size(char *file_name){

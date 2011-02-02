@@ -53,9 +53,9 @@ int reverse(char ** buffer);
 /* Load */
 CPU randomCPU(CPU tab[NB_CPU]);
 color randomColor();
-int load_program(CPU grid[NB_CPU], unsigned char ** stock_hexa);
+int open_load_File(char * file, CPU cpu);
 
 /* File init */
 int init(CPU * grid);
-void setMem(CPU cpu);
-void setReg(CPU cpu);
+void setMem(CPU * cpu);
+void setReg(CPU * cpu);
