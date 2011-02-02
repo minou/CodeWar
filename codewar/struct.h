@@ -43,8 +43,8 @@ color get_color(CPU cpu);
 int cmp_color(color color_cpu);
 
 /* File displayCPU */
-void displayCPU(CPU cpu);
-void displayReg(CPU cpu);
+void displayCPU(CPU * cpu);
+void displayReg(CPU * cpu);
 
 /* File open */
 int openFile(char * file, unsigned char ** stock_hexa);
@@ -53,7 +53,7 @@ int reverse(char ** buffer);
 /* Load */
 CPU randomCPU(CPU tab[NB_CPU]);
 color randomColor();
-int open_load_File(char * file, CPU cpu);
+int open_load_File(char * file, CPU * cpu);
 
 /* File init */
 int init(CPU * grid);

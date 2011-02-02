@@ -10,7 +10,7 @@
 * return 0 if everything went smoothly
 * return -1 if there is an error
 */
-int open_load_File(char * file, CPU cpu){
+int open_load_File(char * file, CPU * cpu){
      int fd, r, i = 0;
      unsigned char * buffer = malloc(HEXA);
      
@@ -31,12 +31,12 @@ int open_load_File(char * file, CPU cpu){
 	       return -1;
 	  }
 	  if (r > 0){
-            cpu.RAM[i].number = buffer[0];/*store octet by octet in the memory*/
-	    printf("	%02x", cpu.RAM[i].number);
+            (cpu->RAM[i]).number = buffer[0];/*store octet by octet in the memory*/
+	    printf("	%02x", (cpu->RAM[i]).number);
 	    i++;
-	    
 	  }
      }
+     
      printf("\n");
      return 0;
 }
