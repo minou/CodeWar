@@ -8,7 +8,7 @@ int cmp_color(color color_cpu);
 void displayCPU(CPU cpu);
 void displayReg(CPU cpu);
 
-/* Load */
+/* open_load */
 int open_load_File(char * file, CPU * cpu);
 
 /* File init */
@@ -17,6 +17,11 @@ void setColor(CPU * cpu);
 void setMem(CPU * cpu);
 void setReg(CPU * cpu);
 
-/* File Random */
+/* File random */
 CPU randomCPU(CPU * grid);
 color randomColor();
+
+/* FIle extract */
+word extract(CPU cpu, int num);
+word switching(word word);
+void next(CPU * cpu);
