@@ -6,7 +6,7 @@
 #define NB_MALLOC 18
 
 /* Méthode permettant d'afficher le plateau */
-void display_grid(CPU grid[256])
+void display_grid(CPU ** grid)
 {
     int nb = 1;
     int i = 1;
@@ -17,6 +17,7 @@ void display_grid(CPU grid[256])
     char ** line = malloc(nb_malloc * sizeof(char *));
 
 
+            printf("line 60");
     /* Init */
     while (i < nb_malloc - 1)
     {
@@ -51,13 +52,16 @@ void display_grid(CPU grid[256])
     while (i < nb_malloc - 1)
     {
         while ((nb % nb_line) != 0){
-            char str[4];
+            char * str;
             color color = get_color(grid[nb]);
+            printf("line 60");
             if (cmp_color(color) == 0){
                 strcat(line[i], "    ");
             }
             else{
-                str = (char) color.color;
+                printf("line 60");
+                str += color.color[0].number;
+                str += color.color[1].number;
                 strcat(line[i], str);
             }
             strcat(line[i], "|");
@@ -93,24 +97,21 @@ void free2(char ** line)
     free(line);
 }
 
-color get_color(CPU cpu)
+color get_color(CPU * cpu)
 {
     int i = 0;
     color color;
-    while (i < 4){
-        color.color[i] = cpu.RAM[2 + i];
+    while (i < 2){
+        color.color[i] = cpu->RAM[2 + i];
         i++;
     }
     return color;
 }
 
 int cmp_color(color color_cpu){
-    int i = 0;
-    while (i < 2){
-        if (color_cpu.color[i] != 205){
-            return 1;
-        }
-        i++;
+    unsigned char cd = 205;
+    if ((color_cpu.color[0].number != cd) && (color_cpu.color[1].number != cd)){
+        return 1;
     }
     return 0;
 }

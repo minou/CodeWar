@@ -37,9 +37,9 @@ typedef struct color
 }color;
 
 /* FIle displayGrid */
-void display_grid(CPU grid[NB_CPU]);
+void display_grid(CPU ** grid);
 void free2(char ** line);
-color get_color(CPU cpu);
+color get_color(CPU * cpu);
 int cmp_color(color color_cpu);
 
 /* File displayCPU */

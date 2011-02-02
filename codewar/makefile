@@ -3,7 +3,7 @@ EXEC=main
 
 all: $(EXEC)
 
-main: main.o open_load.o extract.o displayGrid.o displayCPU.o
+main: main.o init.o open_load.o extract.o displayGrid.o displayCPU.o
 
 main.o: main.c struct.h
 init.o: init.c struct.h

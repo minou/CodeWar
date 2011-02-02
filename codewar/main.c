@@ -19,10 +19,10 @@ int main(int args , char ** argv)
         return -1;
     }
     
-    /* Display grid 
+    /* Display grid */
     if (strcmp(option, "-g") == 0){
-        display_grid(grid);
-    }*/
+        display_grid(&grid);
+    }
 
     /* Display CPU */
     if (strcmp(option, "-c") == 0){
