@@ -11,6 +11,11 @@ void setMem(CPU * cpu){
         i++;
     }
 }
+void setColor(CPU * cpu){
+      color c = randomColor();
+       cpu->RAM[1].number = c.color[0].number;
+       cpu->RAM[2].number = c.color[1].number;
+}
 
 /*initialisation of the 8 registers*/
 void setReg(CPU * cpu){
@@ -24,9 +29,11 @@ void setReg(CPU * cpu){
 }
 
 int init(CPU * grid){
-    int i = 0;
+    int i = 15;
+    
     while (i < NB_CPU){
         setMem(&grid[i]);
+	setColor(&grid[i]);
         setReg(&grid[i]);
         i++;
     }

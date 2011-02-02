@@ -16,7 +16,6 @@ int open_load_File(char * file, CPU * cpu){
      unsigned char * buffer = malloc(HEXA);
      
      fd = open(file, O_RDONLY);
-     printf("open_18");
      if (fd == -1){
 	  perror("open_in_open_load");
 	  return -1;
@@ -34,7 +33,6 @@ int open_load_File(char * file, CPU * cpu){
 	  }
 	  if (r > 0){
             (cpu->RAM[i]).number = buffer[0];/*store octet by octet in the memory*/
-	    printf("	%02x", (cpu->RAM[i]).number);
 	    i++;
 	  }
      }

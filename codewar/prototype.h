@@ -13,6 +13,7 @@ int open_load_File(char * file, CPU * cpu);
 
 /* File init */
 int init(CPU * grid);
+void setColor(CPU * cpu);
 void setMem(CPU * cpu);
 void setReg(CPU * cpu);
 

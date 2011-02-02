@@ -6,9 +6,7 @@
 
 CPU  randomCPU(CPU * grid){
       int nb = rand()%NB_CPU;
-      printf("random_8");
       srand(time(NULL));
-      printf("%d\n", nb);
       return grid[nb];
 }
 
@@ -17,8 +15,7 @@ color randomColor(){
       color randColor;
       srand(time(NULL));
       while (i < 2){
-	    printf("random_18");
-	    randColor.color[i].number = rand()%HEXA;
+	    randColor.color[i] = rand()%HEXA;
 	    i++;
       }
       return randColor;
