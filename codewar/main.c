@@ -34,22 +34,22 @@ int main(int args , char ** argv)
         if (nb < 0 || nb >= NB_CPU){
             return -1;
         }
-        displayCPU(grid[nb]);
-        displayReg(grid[nb]);
+        displayCPU(&grid[nb]);
+        displayReg(&grid[nb]);
     }
 
     /* Open and load program in CPU */
     if (strcmp(option, "-f") == 0){
 	  char * file = "output";	
 	  /*int i ;*/
-	  open_load_File(file, grid[50]);
+	  open_load_File(file, &grid[50]);
 	  /*for (i = 0; i<MEM_SIZE; i++){
 	       printf("%02x", cpu.RAM[i]);
 	       if( (i%15) == 0){
 		   printf("\n"); 
 	       }
 	  }*/
-	  displayCPU(grid[50]);
+	  displayCPU(&grid[50]);
 	  printf("\n");	  
     }
 
