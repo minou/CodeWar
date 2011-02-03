@@ -10,10 +10,10 @@ void displayReg(CPU cpu);
 
 /* open_load */
 int open_load_File(char * file, CPU * cpu);
+void setColor(CPU * cpu);
 
 /* File init */
 int init(CPU * grid);
-void setColor(CPU * cpu);
 void setMem(CPU * cpu);
 void setReg(CPU * cpu);
 
@@ -21,7 +21,7 @@ void setReg(CPU * cpu);
 CPU randomCPU(CPU * grid);
 color randomColor();
 
-/* FIle extract */
+/* File extract */
 word extract(CPU * cpu, int num);
 word switching(word word);
 void next(CPU * cpu);

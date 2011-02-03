@@ -13,8 +13,7 @@
  */
 int open_load_File(char * file, CPU * cpu){
     int fd, r, i = 16;
-    unsigned char * buffer = malloc(HEXA);
-
+    unsigned char * buffer = malloc(1);
     fd = open(file, O_RDONLY);
     if (fd == -1){
         perror("open_in_open_load");
@@ -26,7 +25,7 @@ int open_load_File(char * file, CPU * cpu){
      * this means that the program cannot weight more than 240octets???
      * we need to know the length of the file 
      */
-    while ( (r = read(fd, buffer, HEXA)) != 0){
+    while ( (r = read(fd, buffer, 1)) != 0){
         if (r == -1){
             perror("read_in_open_load");
             return -1;
@@ -36,9 +35,16 @@ int open_load_File(char * file, CPU * cpu){
             i++;
         }
     }
-
+    setColor(cpu);
     printf("\n");
+    free(buffer);
     return 0;
+}
+
+void setColor(CPU * cpu){
+    color c = randomColor();
+    cpu->RAM[1] = c.word[0];
+    cpu->RAM[2] = c.word[1];
 }
 
 int get_file_size(char *file_name){

@@ -2,7 +2,14 @@
 #include "prototype.h"
 #include <stdio.h>
 
-/*initialisation of the CPU memory*/
+
+/*In this file we initialize the grid of 256 CPU
+* in each CPU of this grid we initialize the memory and the registers
+*/
+
+
+
+/*initialization of the CPU memory*/
 void setMem(CPU * cpu){
     int i = 0;
     int nb = 205;/*CD*/
@@ -12,13 +19,7 @@ void setMem(CPU * cpu){
     }
 }
 
-void setColor(CPU * cpu){
-    color c = randomColor();
-    cpu->RAM[1] = c.word[0];
-    cpu->RAM[2] = c.word[1];
-}
-
-/*initialisation of the 8 registers*/
+/*initialization of the 8 registers*/
 void setReg(CPU * cpu){
     int i, ca, fe;
     i = 0;
@@ -30,13 +31,12 @@ void setReg(CPU * cpu){
         i++;
     }
 }
-
+/*initialization of the grid*/
 int init(CPU * grid){
     int i = 0;
     while (i < NB_CPU){
         setMem(&grid[i]);
         setReg(&grid[i]);
-        setColor(&grid[i]);
         i++;
     }
     return 0;

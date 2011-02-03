@@ -6,7 +6,6 @@
 /* there are 8 registers in each CPU*/
 #define REG 8
 
-#define HEXA 1
 #define SIZE_BUFFER 15
 
 #define NB_CPU 256
