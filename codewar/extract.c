@@ -8,10 +8,10 @@ word extract(CPU * cpu, int num){
     return word;
 }
 
-word switching(word word){
+word switching(word w){
     word new;
-    new[0] = word[1];
-    new[1] = word[0];
+    new.word[0] = w.word[1];
+    new.word[1] = w.word[0];
     return new;
 }
 

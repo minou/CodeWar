@@ -22,6 +22,6 @@ CPU randomCPU(CPU * grid);
 color randomColor();
 
 /* FIle extract */
-word extract(CPU cpu, int num);
+word extract(CPU * cpu, int num);
 word switching(word word);
 void next(CPU * cpu);
