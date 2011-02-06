@@ -24,3 +24,6 @@ color randomColor();
 word extract(CPU * cpu, int num);
 word switching(word word);
 void next(CPU * cpu);
+
+/*HexaToBinary*/
+char * HexaToBinary(word w);
