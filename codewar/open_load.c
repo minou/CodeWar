@@ -35,14 +35,11 @@ int open_load_File(char * file, CPU * cpu){
             i++;
         }
     }
-    setColor(cpu);
-    printf("\n");
     free(buffer);
     return 0;
 }
 
-void setColor(CPU * cpu){
-    color c = randomColor();
+void setColor(CPU * cpu, color c){
     cpu->RAM[1] = c.word[0];
     cpu->RAM[2] = c.word[1];
 }

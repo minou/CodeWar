@@ -38,12 +38,16 @@ int main(int args , char ** argv)
 
     /* Open and load program in CPU */
     if (strcmp(option, "-f") == 0){
-        char * file = "output";	
-        CPU cpu = randomCPU(grid);
-        open_load_File(file, &cpu);
+        char * file = "output";
+        int cpu_num = randomCPU();
+        CPU * cpu = &grid[cpu_num];
+        color color_cpu = randomColor();
+        setColor(cpu, color_cpu);
+        open_load_File(file, cpu);
+        printf("Program %s loaded in cpu %d (color %02x%02x)\n", file, cpu_num, color_cpu.word[0], color_cpu.word[1]);
         display_grid(grid);
-        displayCPU(cpu);
-        printf("\n");	  
+        displayCPU(*cpu);
+        printf("\n");
     }
 
     return 0;

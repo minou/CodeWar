@@ -2,15 +2,14 @@
 #include "prototype.h"
 #include <stdlib.h>
 #include <time.h>
-#include <stdio.h>
 
 /*In this file we choose randomly the position of the CPU in the grid
 * and the color
 */
 
-CPU  randomCPU(CPU * grid){
+int randomCPU(){
     srand(time(NULL));
-    return grid[rand()%NB_CPU];
+    return rand()%NB_CPU;
 }
 
 color randomColor(){

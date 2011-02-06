@@ -17,8 +17,8 @@ word switching(word w){
 }
 
 void execute(word w){}
-char * hexaBinaire(word w){}
-void decryte(char *){}
+char * hexaBinaire(word w);
+void decryte(char *s){}
 /* Permet de passer la l'instruction suivant et l'execute */
 void next(CPU * cpu){
     /* Load register R6 or PC */
