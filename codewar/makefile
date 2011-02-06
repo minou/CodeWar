@@ -1,10 +1,12 @@
 CFLAGS= -Wall -Werror -ansi -pedantic
-EXEC=main
+EXEC=main shell
 
 all: $(EXEC)
 
 main: main.o init.o displayGrid.o displayCPU.o open_load.o random.o extract.o
+shell: shell.o
 
+shell.o: shell.c
 main.o: main.c struct.h prototype.h
 init.o: init.c struct.h prototype.h
 open_load.o: open_load.c struct.h prototype.h
