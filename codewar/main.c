@@ -50,19 +50,18 @@ int main(int args , char ** argv)
         printf("\n");
     }
     if (strcmp(option, "-conv") == 0){
-     int i, j;
+     int  j;
      word w;
      binary * result = malloc(sizeof(binary));
      w.word[0] = 205;
      w.word[1] = 216;
      result = conversion(w, result);
-     for(i = 0; i<=1; i++){
-	  for (j = 0; j<8; j++){
-	       printf("result[%d][%d] :",i,j);
-	       printf("%d\t",result->tab[i][j]);
+
+	  for (j = 0; j<16; j++){
+	       printf("result[%d] :",j);
+	       printf("%d\t",result->tab[j]);
 	  }
 	  printf("\n");
-     }
 
     }
     return 0;
