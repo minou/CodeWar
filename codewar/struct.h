@@ -19,14 +19,15 @@ typedef struct CPU
 {
     unsigned char RAM[MEM_SIZE];
     word registers[REG];
-    /*CPU flags, indicates his state*/
-    int c;/*carry flag, =1 if a op generates a carry*/
-    int z;/*zero flag, =1 if the result of an op is = 0*/
-    int n;/*negativity flag, =1 if the result of an op is < 0*/
+     /*CPU flags, indicates his state*/
+    word stateregister[1];
+    /*carry flag, =1 if a op generates a carry*/
+    /*zero flag, =1 if the result of an op is = 0*/
+    /*negativity flag, =1 if the result of an op is < 0*/
 } CPU;
 
 typedef word color;
-
+/*in this structure we store the instruction in binary*/
 typedef struct binary{
       int tab [16];
       
