@@ -50,11 +50,11 @@ int main(int args , char ** argv)
         printf("\n");
     }
     if (strcmp(option, "-conv") == 0){
-           int i, j;
+     int i, j;
      word w;
+     binary * result = malloc(sizeof(binary));
      w.word[0] = 205;
      w.word[1] = 216;
-     binary * result = malloc(sizeof(binary));
      result = conversion(w, result);
      for(i = 0; i<=1; i++){
 	  for (j = 0; j<8; j++){

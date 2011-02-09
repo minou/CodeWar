@@ -26,4 +26,4 @@ word switching(word word);
 void next(CPU * cpu);
 
 /*DecToBin*/
-char ** conversion(word w,binary * result);
+binary * conversion(word w,binary * result);
