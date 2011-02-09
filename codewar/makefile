@@ -3,7 +3,7 @@ EXEC=main shell
 
 all: $(EXEC)
 
-main: main.o init.o displayGrid.o displayCPU.o open_load.o random.o extract.o #HexaToBinary.o
+main: main.o init.o displayGrid.o displayCPU.o open_load.o random.o extract.o conversion.o
 shell: shell.o
 
 shell.o: shell.c
@@ -14,7 +14,7 @@ extract.o: extract.c struct.h prototype.h
 displayGrid.o: displayGrid.c struct.h prototype.h
 displayCPU.o: displayCPU.c struct.h prototype.h
 random.o: random.c struct.h prototype.h
-#HexaToBinary.o: struct.h
+conversion.o: conversion.c struct.h
 
 clean:
 	rm *.o
