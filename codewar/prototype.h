@@ -26,4 +26,4 @@ word switching(word word);
 void next(CPU * cpu);
 
 /*HexaToBinary*/
-char * HexaToBinary(word w);
+char ** conversion(word w);
