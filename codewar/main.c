@@ -49,6 +49,21 @@ int main(int args , char ** argv)
         displayCPU(*cpu);
         printf("\n");
     }
+    if (strcmp(option, "-conv") == 0){
+           int i, j;
+     word w;
+     w.word[0] = 205;
+     w.word[1] = 216;
+     binary * result = malloc(sizeof(binary));
+     result = conversion(w, result);
+     for(i = 0; i<=1; i++){
+	  for (j = 0; j<8; j++){
+	       printf("result[%d][%d] :",i,j);
+	       printf("%d\t",result->tab[i][j]);
+	  }
+	  printf("\n");
+     }
 
+    }
     return 0;
 }

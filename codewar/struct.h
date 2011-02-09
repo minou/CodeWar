@@ -26,3 +26,8 @@ typedef struct CPU
 } CPU;
 
 typedef word color;
+
+typedef struct binary{
+      int tab [2][8];
+      
+}binary;

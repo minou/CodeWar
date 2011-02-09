@@ -25,5 +25,5 @@ word extract(CPU * cpu, int num);
 word switching(word word);
 void next(CPU * cpu);
 
-/*HexaToBinary*/
-char ** conversion(word w);
+/*DecToBin*/
+char ** conversion(word w,binary * result);
