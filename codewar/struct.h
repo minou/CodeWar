@@ -73,9 +73,9 @@ instruction insts[]{
     {"XOR", 2, NULL, NULL, xor};
     {"NOT", 1, NULL, not, NULL};
     {"BCC", 1, NULL, bcc, NULL};
-    {"BGT", 1, NULL, bgt, NULL};
+    /*{"BGT", 1, NULL, bgt, NULL};*/
     {"BCS", 1, NULL, bcs, NULL};
-    {"BLT", 1, NULL, blt, NULL};
+    /*{"BLT", 1, NULL, blt, NULL};*/
     {"BEQ", 1, NULL, beq, NULL};
     {"BNE", 1, NULL, bne, NULL};
     {"BLE", 1, NULL, ble, NULL};
@@ -83,9 +83,9 @@ instruction insts[]{
     {"BRA", 1, NULL, bra, NULL};
     {"BSR", 1, NULL, bsr, NULL};
     {"JCC", 1, NULL, jcc, NULL};
-    {"JGT", 1, NULL, jgt, NULL};
+    /*{"JGT", 1, NULL, jgt, NULL};*/
     {"JCS", 1, NULL, jcs, NULL};
-    {"JLT", 1, NULL, jlt, NULL};
+    /*{"JLT", 1, NULL, jlt, NULL};*/
     {"JEQ", 1, NULL, jeq, NULL};
     {"JNE", 1, NULL, jne, NULL};
     {"JLE", 1, NULL, jle, NULL};
