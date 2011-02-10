@@ -64,5 +64,18 @@ int main(int args , char ** argv)
 	  printf("\n");
 
     }
+
+    if (strcmp(option, "-test") == 0){
+        word w;
+        binary * result = malloc(sizeof(binary));
+        unsigned char s;
+        w = extract(&grid[0], 0);
+        w = switching(w);
+        result = conversion(w, result);
+        s = instructionName(result);
+        decryte(s);
+    }
+
+
     return 0;
 }

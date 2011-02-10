@@ -20,12 +20,25 @@ binary * conversion(word w, binary * result){
 /*this function convert the first 5 bites in hexadecimal
  * to determine the instruction
  */
-unsigned char BinaryToHexa(binary * bin){
-    int i;
+unsigned char instructionName(binary * bin){
+    int i = 0;
     int nb = 0;
     unsigned char result;
-    for (i = 0; i < 5; i++){
-        nb += bin->tab[4-i] * (int)pow(i, 2);
+    while (i < 5){
+        nb += bin->tab[4 - i] * (int)pow(i, 2);
+        i++;
+    }
+    result = nb;
+    return result;
+}
+
+unsigned char instructionType(binary * bin){
+    int i = 0;
+    int nb = 0;
+    unsigned char result;
+    while (i < 3){
+        nb += bin->tab[2 + 5 - i] * (int)pow(i, 2);
+        i++;
     }
     result = nb;
     return result;

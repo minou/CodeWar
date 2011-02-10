@@ -27,3 +27,8 @@ void next(CPU * cpu);
 
 /*DecToBin*/
 binary * conversion(word w,binary * result);
+unsigned char instructionName(binary * bin);
+unsigned char instructionType(binary * bin);
+
+/* File execute */
+void decryte(unsigned char s);
