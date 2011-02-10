@@ -4,7 +4,7 @@ all: $(EXEC)
 
 ../bin/shell: shell.o conversion.o
 	gcc -o $@ $^
-../bin/main: main.o init.o displayGrid.o displayCPU.o open_load.o random.o extract.o conversion.o
+../bin/main: main.o init.o displayGrid.o displayCPU.o open_load.o random.o extract.o conversion.o execute.o
 	gcc -o $@ $^
 
 makefile.dep: Makefile $(wildcard *.[ch])

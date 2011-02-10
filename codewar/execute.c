@@ -1,6 +1,6 @@
 #include "struct.h"
 #include "prototype.h"
-
+#include <stdio.h>
 /*fetch instruction, passe à l'operation suivante*/
 void fetch();
 
@@ -8,7 +8,8 @@ void fetch();
 void execute(word w){}
 
 void decryte(unsigned char s){
-    int i;
+    /*int i;*/
+    int nb = s;
     instruction insts[33] = {
         {"MOVE", 2, NULL, NULL, NULL},
         {"PUSH", 1, NULL, NULL, NULL},
@@ -44,10 +45,9 @@ void decryte(unsigned char s){
         {"TRAP", 1, NULL, NULL, NULL},
         {"RTE", 0, NULL, NULL, NULL},
     };
-    int nb = s;
     printf("%s\n", insts[nb].name);
-    }
 }
+
 
 /* Permet de passer la l'instruction suivant et l'execute */
 void next(CPU * cpu){
