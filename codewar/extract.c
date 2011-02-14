@@ -8,6 +8,7 @@ word extract(CPU * cpu, int num){
     word word;
     word.word[0] = cpu->RAM[16 + (2 * num)];
     word.word[1] = cpu->RAM[16 + (2 * num) + 1];
+    word = switching(word);
     return word;
 }
 

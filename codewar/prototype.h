@@ -31,4 +31,5 @@ unsigned char instructionName(binary * bin);
 unsigned char instructionType(binary * bin);
 
 /* File execute */
-void decryte(unsigned char s);
+void decryte(binary * result);
+void next(CPU * cpu);

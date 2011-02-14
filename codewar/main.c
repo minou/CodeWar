@@ -49,33 +49,26 @@ int main(int args , char ** argv)
         displayCPU(*cpu);
         printf("\n");
     }
-    if (strcmp(option, "-conv") == 0){
-     int  j;
-     word w;
-     binary * result = malloc(sizeof(binary));
-     w.word[0] = 205;
-     w.word[1] = 216;
-     result = conversion(w, result);
 
-	  for (j = 0; j<16; j++){
-	       printf("result[%d] :",j);
-	       printf("%d\t",result->tab[j]);
-	  }
-	  printf("\n");
+    if (strcmp(option, "-conv") == 0){
+        int  j;
+        word w;
+        binary * result = malloc(sizeof(binary));
+        w.word[0] = 205;
+        w.word[1] = 216;
+        result = conversion(w, result);
+
+        for (j = 0; j<16; j++){
+            printf("result[%d] :",j);
+            printf("%d\t",result->tab[j]);
+        }
+        printf("\n");
 
     }
 
     if (strcmp(option, "-test") == 0){
-        word w;
-        binary * result = malloc(sizeof(binary));
-        unsigned char s;
-        w = extract(&grid[0], 0);
-        w = switching(w);
-        result = conversion(w, result);
-        s = instructionName(result);
-        decryte(s);
+        next(&grid[0]);
     }
-
 
     return 0;
 }

@@ -1,13 +1,14 @@
 #include "struct.h"
 #include "prototype.h"
 #include <stdio.h>
+#include <stdlib.h>
 /*fetch instruction, passe à l'operation suivante*/
 void fetch();
 
 /*execute l'instruction préalablement décoder*/
 void execute(word w){}
 
-void decryte(unsigned char s){
+void decryte(binary * result){
     instruction insts[31] = {
         {"MOVE", 2, NULL, NULL, NULL},
         {"PUSH", 1, NULL, NULL, NULL},
@@ -41,11 +42,25 @@ void decryte(unsigned char s){
         {"TRAP", 1, NULL, NULL, NULL},
         {"RTE", 0, NULL, NULL, NULL},
     };
-    printf("%s\n", insts[s].name);
+    int nb;
+    unsigned char s = instructionName(result);
+    instruction instru = insts[s];
+    if (instru.nbOp == 0){
+        /*instru.(*executeZeroOp)();*/
+    }
+    if (instru.nbOp == 1){
+        nb = instructionType(result);
+    }
+
+    printf("%s\n", instru.name);
 }
 
 
 /* Permet de passer la l'instruction suivant et l'execute */
 void next(CPU * cpu){
     /* Load register R6 or PC */
+    binary * result = malloc(sizeof(binary));
+    word w = extract(cpu, 0);
+    result = conversion(w, result);
+    decryte(result);
 }
