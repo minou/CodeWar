@@ -42,14 +42,25 @@ void decryte(binary * result){
         {"TRAP", 1, NULL, NULL, NULL},
         {"RTE", 0, NULL, NULL, NULL},
     };
-    int nb;
+    operande op, op2;
     unsigned char s = instructionName(result);
     instruction instru = insts[s];
+    
     if (instru.nbOp == 0){
-        /*instru.(*executeZeroOp)();*/
+        instru.executeZeroOp();
     }
     if (instru.nbOp == 1){
-        nb = instructionType(result);
+        op.type = instructionType(result);
+        op.value = instructionValue(result);
+        instru.executeOneOp(op);
+    }
+    if (instru.nbOp == 2){
+        op.type = instructionType(result);
+        op.value = instructionValue2(result);
+        op2.type = instructionType2(result);
+
+        /* la deuxième value n'est pas gérer */
+        instru.executeTwoOp(op, op2);
     }
 
     printf("%s\n", instru.name);

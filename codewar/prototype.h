@@ -29,6 +29,9 @@ void next(CPU * cpu);
 binary * conversion(word w,binary * result);
 unsigned char instructionName(binary * bin);
 unsigned char instructionType(binary * bin);
+unsigned char instructionValue(binary * bin);
+unsigned char instructionType2(binary * bin);
+unsigned char instructionValue2(binary * bin);
 
 /* File execute */
 void decryte(binary * result);
