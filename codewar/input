@@ -1,0 +1,7 @@
+	move @1, r5
+	move #0x0100, r1
+	move 	#1, r0
+loop:
+	add	r1, r0				
+	move 	r5, (r0)
+	bra loop
