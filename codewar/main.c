@@ -68,6 +68,9 @@ int main(int args , char ** argv)
 	next(cpu);
 	next(cpu);
 	next(cpu);
+	next(cpu);
+	next(cpu);
+	next(cpu);
     }
 
     if (strcmp(option, "-test") == 0){

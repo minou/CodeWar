@@ -63,7 +63,7 @@ void decryte(word * result){
         instru.executeTwoOp(op, op2);
     }*/
 
-    printf("%s\n", instru.name);
+    printf("le nom de l'instruction est %s\n", instru.name);
 }
 
 /* Permet de passer la l'instruction suivant et l'execute */

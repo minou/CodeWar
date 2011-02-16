@@ -1,6 +1,7 @@
 /* an instruction is coded on 16 bits -> 2 octets -> 2 words */
 #include "struct.h"
-
+#include <stdlib.h>
+#include <stdio.h> 
 /*the word has already been switch*/
 
 /* this function convert the first 5 bites in hexadecimal
@@ -8,6 +9,7 @@
  */
 
 word instructionName(word * wrd){
+     printf("code l'instruction %05x\n",(*wrd >> 11));
     return *wrd >> 11;
 }
 
