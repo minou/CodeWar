@@ -11,6 +11,7 @@ void displayReg(CPU cpu);
 int open_load_File(char * file, CPU * cpu);
 void setColor(CPU * cpu, color color_cpu);
 void setStack(CPU * cpu);
+int get_file_size(char * file);
 
 /* File init */
 int init(CPU * grid);
