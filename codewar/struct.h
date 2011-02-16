@@ -12,7 +12,7 @@
 
 typedef struct word
 {
-    unsigned char word[2];
+    unsigned short word;
 }word;
 
 typedef struct CPU
@@ -26,10 +26,6 @@ typedef struct CPU
 } CPU;
 
 typedef word color;
-
-typedef struct binary{
-      int tab [16];
-}binary;
 
 enum regist{
     RO,

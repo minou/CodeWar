@@ -29,8 +29,7 @@ void display_grid(CPU * grid)
                 printf("    |");
             }
             else{
-                printf("%02x", color.word[0]);
-                printf("%02x|", color.word[1]);
+                printf("%04x|", color.word);
             }
             nb++;
         }
@@ -44,19 +43,15 @@ void display_grid(CPU * grid)
 
 color get_color(CPU * cpu)
 {
-    int i = 0;
     color color;
-    while (i < 2){
-        color.word[i] = cpu->RAM[1 + i];
-        i++;
-    }
+    /* Probleme il faut prendre la fin du prenier et le debut du deuxieme */
+    color.word = cpu->RAM[0];
     return color;
 }
 
 int cmp_color(color color_cpu)
 {
-    unsigned char cd = 205;
-    if ((color_cpu.word[0] != cd) || (color_cpu.word[1] != cd)){
+    if (color_cpu.word != 0xCDCD){
         return 1;
     }
     return 0;

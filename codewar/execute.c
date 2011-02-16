@@ -8,7 +8,7 @@ void fetch();
 /*execute l'instruction préalablement décoder*/
 void execute(word w){}
 
-void decryte(binary * result){
+/*void decryte(binary * result){
     instruction insts[31] = {
         {"MOVE", 2, NULL, NULL, NULL},
         {"PUSH", 1, NULL, NULL, NULL},
@@ -59,19 +59,19 @@ void decryte(binary * result){
         op.value = instructionValue2(result);
         op2.type = instructionType2(result);
 
-        /* la deuxième value n'est pas gérer */
+        *//* la deuxième value n'est pas gérer *//*
         instru.executeTwoOp(op, op2);
     }
 
     printf("%s\n", instru.name);
 }
-
+*/
 
 /* Permet de passer la l'instruction suivant et l'execute */
 void next(CPU * cpu){
     /* Load register R6 or PC */
-    binary * result = malloc(sizeof(binary));
+    /*binary * result = malloc(sizeof(binary));
     word w = extract(cpu, 0);
     result = conversion(w, result);
-    decryte(result);
+    decryte(result);*/
 }

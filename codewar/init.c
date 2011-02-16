@@ -12,22 +12,18 @@
 /*initialization of the CPU memory*/
 void setMem(CPU * cpu){
     int i = 0;
-    int nb = 205;/*CD*/
     while (i < MEM_SIZE){
-        (cpu->RAM[i]) = nb; 	
+        (cpu->RAM[i]) = 0xCD;
         i++;
     }
 }
 
 /*initialization of the 8 registers*/
 void setReg(CPU * cpu){
-    int i, ca, fe;
+    int i;
     i = 0;
-    ca = 202;
-    fe = 254;
     while (i < REG){
-        cpu->registers[i].word[0] = ca;
-        cpu->registers[i].word[1] = fe;
+        cpu->registers[i].word = 0xCAFE;
         i++;
     }
 }

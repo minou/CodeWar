@@ -13,12 +13,8 @@ int randomCPU(){
 }
 
 color randomColor(){
-    int i = 0;
     color randColor;
     srand(time(NULL));
-    while (i < 2){
-        randColor.word[i] = rand()%16;
-        i++;
-    }
+    randColor.word = rand()%65535;
     return randColor;
 }

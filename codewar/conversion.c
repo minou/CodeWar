@@ -5,7 +5,7 @@
 #include <math.h>
 
 /*the word has already been switch*/
-binary * conversion(word w, binary * result){
+/*binary * conversion(word w, binary * result){
     int j, i, reste;
     for(i = 0; i < 2; i++){
         reste = w.word[i];
@@ -16,10 +16,11 @@ binary * conversion(word w, binary * result){
     }
     return result;
 }
-
-/*this function convert the first 5 bites in hexadecimal
- * to determine the instruction
- */
+*/
+/* this function convert the first 5 bites in hexadecimal
+*  to determine the instruction
+*/
+/*
 unsigned char instructionName(binary * bin){
     int i = 0;
     int nb = 0;
@@ -78,4 +79,4 @@ unsigned char instructionValue2(binary * bin){
     }
     result = nb;
     return result;
-}
+}*/

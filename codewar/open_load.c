@@ -40,8 +40,9 @@ int open_load_File(char * file, CPU * cpu){
 }
 
 void setColor(CPU * cpu, color c){
-    cpu->RAM[1] = c.word[0];
-    cpu->RAM[2] = c.word[1];
+      /* Probleme il faut prendre la fin du prenier et le debut du deuxieme */
+    cpu->RAM[1] = c.word >> 8;
+    cpu->RAM[2] = c.word << 8;
 }
 
 int get_file_size(char *file_name){

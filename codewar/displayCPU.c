@@ -40,9 +40,9 @@ void displayCPU(CPU cpu){
 
 /*display the 8 registers*/
 void displayReg(CPU cpu){
-    int i = 0;
-    while (i < REG){
-        printf("  R%d: 0x%2x%2x	\n", i, cpu.registers[i].word[0], cpu.registers[i].word[1]);
-        i++;
-    }
+      int i = 0;
+      while (i < REG){
+        printf("  R%d: 0x%4x\n", i, cpu.registers[i].word);
+	i++;
+      }
 }

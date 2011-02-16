@@ -44,26 +44,10 @@ int main(int args , char ** argv)
         color color_cpu = randomColor();
         setColor(cpu, color_cpu);
         open_load_File(file, cpu);
-        printf("Program %s loaded in cpu %d (color %02x%02x)\n", file, cpu_num, color_cpu.word[0], color_cpu.word[1]);
+        printf("Program %s loaded in cpu %d (color %04x)\n", file, cpu_num, color_cpu.word);
         display_grid(grid);
         displayCPU(*cpu);
         printf("\n");
-    }
-
-    if (strcmp(option, "-conv") == 0){
-        int  j;
-        word w;
-        binary * result = malloc(sizeof(binary));
-        w.word[0] = 205;
-        w.word[1] = 216;
-        result = conversion(w, result);
-
-        for (j = 0; j<16; j++){
-            printf("result[%d] :",j);
-            printf("%d\t",result->tab[j]);
-        }
-        printf("\n");
-
     }
 
     if (strcmp(option, "-test") == 0){
