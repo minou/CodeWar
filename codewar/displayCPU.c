@@ -42,7 +42,7 @@ void displayCPU(CPU cpu){
 void displayReg(CPU cpu){
       int i = 0;
       while (i < REG){
-        printf("  R%d: 0x%4x\n", i, cpu.registers[i].word);
+        printf("  R%d: 0x%4x\n", i, cpu.registers[i]);
 	i++;
       }
 }

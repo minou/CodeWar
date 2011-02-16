@@ -8,7 +8,7 @@ void fetch();
 /*execute l'instruction préalablement décoder*/
 void execute(word w){}
 
-/*void decryte(binary * result){
+void decryte(word * result){
     instruction insts[31] = {
         {"MOVE", 2, NULL, NULL, NULL},
         {"PUSH", 1, NULL, NULL, NULL},
@@ -42,11 +42,11 @@ void execute(word w){}
         {"TRAP", 1, NULL, NULL, NULL},
         {"RTE", 0, NULL, NULL, NULL},
     };
-    operande op, op2;
-    unsigned char s = instructionName(result);
+    /*operande op, op2;*/
+    word s = instructionName(result);
     instruction instru = insts[s];
     
-    if (instru.nbOp == 0){
+    /*if (instru.nbOp == 0){
         instru.executeZeroOp();
     }
     if (instru.nbOp == 1){
@@ -61,17 +61,15 @@ void execute(word w){}
 
         *//* la deuxième value n'est pas gérer *//*
         instru.executeTwoOp(op, op2);
-    }
+    }*/
 
     printf("%s\n", instru.name);
 }
-*/
 
 /* Permet de passer la l'instruction suivant et l'execute */
 void next(CPU * cpu){
     /* Load register R6 or PC */
-    /*binary * result = malloc(sizeof(binary));
-    word w = extract(cpu, 0);
-    result = conversion(w, result);
-    decryte(result);*/
+    word result = extract(cpu, 0);
+    printf("%04x\n", result);
+    decryte(&result);
 }

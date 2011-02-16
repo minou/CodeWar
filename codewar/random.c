@@ -15,6 +15,6 @@ int randomCPU(){
 color randomColor(){
     color randColor;
     srand(time(NULL));
-    randColor.word = rand()%65535;
+    randColor = rand()%65535;
     return randColor;
 }

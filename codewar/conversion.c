@@ -5,34 +5,16 @@
 #include <math.h>
 
 /*the word has already been switch*/
-/*binary * conversion(word w, binary * result){
-    int j, i, reste;
-    for(i = 0; i < 2; i++){
-        reste = w.word[i];
-        for (j = 0; j < 8; j++){
-            result->tab[15 - (7 * i + j)] = reste % 2;
-            reste = reste / 2;
-        }
-    }
-    return result;
-}
-*/
+
 /* this function convert the first 5 bites in hexadecimal
 *  to determine the instruction
 */
-/*
-unsigned char instructionName(binary * bin){
-    int i = 0;
-    int nb = 0;
-    unsigned char result;
-    while (i < 5){
-        nb += bin->tab[4 - i] * (int)pow(i, 2);
-        i++;
-    }
-    result = nb;
-    return result;
-}
 
+word instructionName(word * wrd){
+    word w = (*wrd >> 11);
+      return w;
+}
+/*
 unsigned char instructionType(binary * bin){
     int i = 0;
     int nb = 0;

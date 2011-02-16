@@ -23,7 +23,7 @@ void setReg(CPU * cpu){
     int i;
     i = 0;
     while (i < REG){
-        cpu->registers[i].word = 0xCAFE;
+        cpu->registers[i] = 0xCAFE;
         i++;
     }
 }

@@ -10,10 +10,7 @@
 
 #define NB_CPU 256
 
-typedef struct word
-{
-    unsigned short word;
-}word;
+typedef unsigned short word;
 
 typedef struct CPU
 {

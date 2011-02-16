@@ -27,3 +27,11 @@ void next(CPU * cpu);
 
 /* File execute */
 void next(CPU * cpu);
+
+word instructionName(word * wrd);
+/*
+unsigned char instructionType(binary * bin);
+unsigned char instructionValue(binary * bin);
+unsigned char instructionType2(binary * bin);
+unsigned char instructionValue2(binary * bin);
+*/

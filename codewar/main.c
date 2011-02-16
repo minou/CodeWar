@@ -38,16 +38,17 @@ int main(int args , char ** argv)
 
     /* Open and load program in CPU */
     if (strcmp(option, "-f") == 0){
-        char * file = "output";
+        char * file = "../codewar/output";
         int cpu_num = randomCPU();
         CPU * cpu = &grid[cpu_num];
         color color_cpu = randomColor();
         setColor(cpu, color_cpu);
         open_load_File(file, cpu);
-        printf("Program %s loaded in cpu %d (color %04x)\n", file, cpu_num, color_cpu.word);
+        printf("Program %s loaded in cpu %d (color %04x)\n", file, cpu_num, color_cpu);
         display_grid(grid);
         displayCPU(*cpu);
         printf("\n");
+	next(cpu);
     }
 
     if (strcmp(option, "-test") == 0){
