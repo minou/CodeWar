@@ -1,1 +1,8 @@
-CodeWar
+CodeWar:
+
+This project is a part of our graduating project.
+It's developped in C only.
+The purpose of this project is to make a simple CPU emulator.
+We have a grid of 256 CPU, each one of them possesses a memory of 256 bytes, 9 registers and a 'color'(only the player's one have a color the others are 'blank).
+In this game, each player, insert a programm coded in Assembler. 
+The goal is to write your 'color' in a maximum of 'blank' CPU or overwrite your ennemie(s).  
