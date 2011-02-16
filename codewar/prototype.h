@@ -10,6 +10,7 @@ void displayReg(CPU cpu);
 /* open_load */
 int open_load_File(char * file, CPU * cpu);
 void setColor(CPU * cpu, color color_cpu);
+void setStack(CPU * cpu);
 
 /* File init */
 int init(CPU * grid);
@@ -26,8 +27,9 @@ void next(CPU * cpu);
 
 /* File execute */
 void next(CPU * cpu);
+void decryte(word * result);
 
-word instructionName(word wrd);
+word instructionName(word * wrd);
 word instructionType(word wrd);
 word instructionValue(word wrd);
 word instructionType2(word wrd);

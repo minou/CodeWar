@@ -44,6 +44,9 @@ void setColor(CPU * cpu, color c){
     cpu->RAM[0] = c >> 8;
     cpu->RAM[1] = c;
 }
+void setStack(CPU * cpu){
+      cpu->registers[6] = 0x10;
+}
 
 int get_file_size(char *file_name){
     FILE *fp;

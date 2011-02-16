@@ -7,8 +7,8 @@
  *  to determine the instruction
  */
 
-word instructionName(word wrd){
-    return wrd >> 11;
+word instructionName(word * wrd){
+    return *wrd >> 11;
 }
 
 word instructionType(word wrd){

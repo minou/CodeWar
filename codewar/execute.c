@@ -69,7 +69,7 @@ void decryte(word * result){
 /* Permet de passer la l'instruction suivant et l'execute */
 void next(CPU * cpu){
     /* Load register R6 or PC */
-    word result = extract(cpu, 0);
+    word result = extract(cpu);
     printf("%04x\n", result);
     decryte(&result);
 }
