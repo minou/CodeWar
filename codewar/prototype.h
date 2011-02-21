@@ -28,10 +28,13 @@ void next(CPU * cpu);
 
 /* File execute */
 void next(CPU * cpu);
-void decryte(word * result);
+void decryte(word * result, CPU * cpu);
 
 word instructionName(word * wrd);
 word instructionType(word wrd);
 word instructionValue(word wrd);
 word instructionType2(word wrd);
 word instructionValue2(word wrd);
+
+/* File instruction */
+void move(operande op1, operande op2);

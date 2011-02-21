@@ -2,13 +2,15 @@
 #include "prototype.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 /*fetch instruction, passe à l'operation suivante*/
 void fetch();
 
 /*execute l'instruction préalablement décoder*/
 void execute(word w){}
 
-void decryte(word * result){
+void decryte(word * result, CPU * cpu){
     instruction insts[31] = {
         {"MOVE", 2, NULL, NULL, NULL},
         {"PUSH", 1, NULL, NULL, NULL},
@@ -42,26 +44,31 @@ void decryte(word * result){
         {"TRAP", 1, NULL, NULL, NULL},
         {"RTE", 0, NULL, NULL, NULL},
     };
-    /*operande op, op2;*/
+    operande op, op2;
     word s = instructionName(result);
     instruction instru = insts[s];
     
-    /*if (instru.nbOp == 0){
-        instru.executeZeroOp();
+    if (instru.nbOp == 0){
+        /*instru.executeZeroOp();*/
     }
     if (instru.nbOp == 1){
-        op.type = instructionType(result);
-        op.value = instructionValue(result);
-        instru.executeOneOp(op);
+        op.type = instructionType(*result);
+        op.value = instructionValue(*result);
+        /*instru.executeOneOp(op);*/
     }
     if (instru.nbOp == 2){
-        op.type = instructionType(result);
-        op.value = instructionValue2(result);
-        op2.type = instructionType2(result);
+        op.type = instructionType(*result);
+        op.value = instructionValue2(*result);
+        op2.type = instructionType2(*result);
 
-        *//* la deuxième value n'est pas gérer *//*
-        instru.executeTwoOp(op, op2);
-    }*/
+        if (strcmp(instru.name, "MOVE") == 0){
+            word result2 = extract(cpu);
+            printf("%04x\n", result2);
+        }
+
+        /* la deuxième value n'est pas gérer */
+        /*instru.executeTwoOp(op, op2);*/
+    }
 
     printf("le nom de l'instruction est %s\n", instru.name);
 }
@@ -71,5 +78,5 @@ void next(CPU * cpu){
     /* Load register R6 or PC */
     word result = extract(cpu);
     printf("%04x\n", result);
-    decryte(&result);
+    decryte(&result, cpu);
 }
