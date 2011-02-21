@@ -1,10 +1,10 @@
 CFLAGS= -Wall -Werror -ansi -pedantic
-EXEC=../bin/main ../bin/shell
+EXEC=main shell
 all: $(EXEC)
 
-../bin/shell: shell.o conversion.o
+shell: shell.o conversion.o
 	gcc -o $@ $^
-../bin/main: main.o init.o displayGrid.o displayCPU.o open_load.o random.o extract.o conversion.o execute.o
+main: main.o init.o displayGrid.o displayCPU.o open_load.o random.o extract.o conversion.o execute.o
 	gcc -o $@ $^
 
 makefile.dep: Makefile $(wildcard *.[ch])
