@@ -60,10 +60,12 @@ void decryte(word * result, CPU * cpu){
         op.type = instructionType(*result);
         op.value = instructionValue2(*result);
         op2.type = instructionType2(*result);
-
+	
+	  /*the Move is a special case we need more data in order to do it*/
         if (strcmp(instru.name, "MOVE") == 0){
             word result2 = extract(cpu);
             printf("%04x\n", result2);
+	    printf("type de la 1 operande = %d\n",op.type);
         }
 
         /* la deuxième value n'est pas gérer */

@@ -20,11 +20,12 @@ word extract(CPU * cpu){
  *  to determine the instruction
  */
 word instructionName(word * wrd){
-     printf("code l'instruction %05x\n",(*wrd >> 11));
+    /*printf("code l'instruction %05x\n",(*wrd >> 11));*/
     return *wrd >> 11;
 }
 
-word instructionType(word wrd){
+word instructionType(word  wrd){
+    printf("type de la premiere instruction %03x\n", (wrd << 5) >> 13 );
     return (wrd << 5) >> 13;
 }
 
