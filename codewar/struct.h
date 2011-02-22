@@ -20,6 +20,7 @@ typedef struct CPU
     int c;/*carry flag, =1 if a op generates a carry*/
     int z;/*zero flag, =1 if the result of an op is = 0*/
     int n;/*negativity flag, =1 if the result of an op is < 0*/
+    word states;/* the states register, in there we store if an operation generates a carry*/
 } CPU;
 
 typedef word color;
