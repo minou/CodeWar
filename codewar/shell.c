@@ -21,13 +21,13 @@ void run_commande(CPU * grid)
 
     bash = ligne_commande(&flag, &nb);
     if (bash == NULL){
-        exit(0);
+        return;
     }
 
     pid = fork();
     if (pid == -1){
-	    perror("fork");
-	    return;
+        perror("fork");
+        return;
     }
     if (pid == 0){
         if (nb <= 1){
@@ -69,5 +69,10 @@ void commande(char ** tab, CPU * grid)
         }
         displayCPU(grid[nb]);
         displayReg(grid[nb]);
+    }
+
+    if (strcmp(option, "next") == 0){
+        int nb = atoi(tab[1]);
+        next(&grid[nb]);
     }
 }
