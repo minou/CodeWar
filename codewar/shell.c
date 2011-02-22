@@ -39,8 +39,7 @@ void run_commande(CPU * grid)
     }
     else
     {
-        if (flag == 0)
-        {
+        if (flag == 0){
             waitpid(pid, &status, 0);
         }
         waitpid(pid, &status, pid);
@@ -52,12 +51,12 @@ void run_commande(CPU * grid)
 void commande(char ** tab, CPU * grid)
 {
     char * option = tab[0];
-    /* Display grid */
+    /* this option displays the grid */
     if (strcmp(option, "grid") == 0){
         display_grid(grid);
     }
 
-    /* Display CPU */
+    /* this option displays CPU */
     if (strcmp(option, "cpu") == 0){
         int nb;
         if (tab[1] == NULL){
@@ -72,7 +71,19 @@ void commande(char ** tab, CPU * grid)
     }
 
     if (strcmp(option, "next") == 0){
-        int nb = atoi(tab[1]);
-        next(&grid[nb]);
+	int nb;
+        nb = atoi(tab[1]);
+	next(&grid[nb]);
+    }
+    /*this option display the list of the different commands available*/
+    if ( (strcmp(option, "help") == 0)){
+        printf("\t\t\tWelcome in the CodeWar's manuel\n");
+	printf("\t- the \"grid\" command displays the game's board\n");
+	printf("\t- the \"cpu\" command, followed by the id of the CPU, displays the RAM and the registers of the CPU\n");
+	printf("\t- the \"next\" command, followed by the id of the CPU, increments the PC registers and go to the next instructions\n");
+	printf("\t- the \"exit\" command, exit the game\n");
+    }
+    if (strcmp(option, "exit") == 0){
+	 /*in this option we should be able to exit the game*/
     }
 }
