@@ -60,7 +60,7 @@ void decryte(word * result, CPU * cpu){
         /*the Move is a special case we need more data in order to do it*/
         if (strcmp(instru.name, "MOVE") == 0){
             word result2 = extract(cpu);
-            printf("%04x\n", result2);
+           /* printf("%04x\n", result2); affiche le deuxieme mot du MOVE*/
             /* t1 */
             op.type = instructionMoveType(*result);
             printf("type de la 1 operande = %d\n",op.type);
@@ -89,6 +89,6 @@ void decryte(word * result, CPU * cpu){
 void next(CPU * cpu){
     /* Load register R6 or PC */
     word result = extract(cpu);
-    printf("%04x\n", result);
+    /*printf("%04x\n", result); affiche le mot extrait*/
     decryte(&result, cpu);
 }
