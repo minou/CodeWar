@@ -35,6 +35,10 @@ word instructionType(word wrd);
 word instructionValue(word wrd);
 word instructionType2(word wrd);
 word instructionValue2(word wrd);
+word instructionMoveType(word wrd);
+word instructionMoveValue(word wrd);
+word instructionMoveType2(word wrd);
+word instructionMoveValue2(word wrd);
 
 /* File instruction */
 void move(operande op1, operande op2);

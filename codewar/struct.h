@@ -47,7 +47,7 @@ typedef struct operande{
 typedef struct instruction{
     char name[10];
     int nbOp;
-    void (*executeZeroOp)();
-    void (*executeOneOp)(operande);
-    void (*executeTwoOp)(operande, operande);
+    void (*executeZeroOp)(CPU *);
+    void (*executeOneOp)(CPU *, operande);
+    void (*executeTwoOp)(CPU *, operande, operande);
 }instruction;

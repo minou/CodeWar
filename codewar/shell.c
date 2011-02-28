@@ -71,19 +71,20 @@ void commande(char ** tab, CPU * grid)
     }
 
     if (strcmp(option, "next") == 0){
-	int nb;
+        int nb;
         nb = atoi(tab[1]);
-	next(&grid[nb]);
+        next(&grid[nb]);
     }
     /*this option display the list of the different commands available*/
-    if ( (strcmp(option, "help") == 0)){
+    if ((strcmp(option, "help") == 0)){
         printf("\t\t\tWelcome in the CodeWar's manuel\n");
-	printf("\t- the \"grid\" command displays the game's board\n");
-	printf("\t- the \"cpu\" command, followed by the id of the CPU, displays the RAM and the registers of the CPU\n");
-	printf("\t- the \"next\" command, followed by the id of the CPU, increments the PC registers and go to the next instructions\n");
-	printf("\t- the \"exit\" command, exit the game\n");
+        printf("\t- the \"grid\" command displays the game's board\n");
+        printf("\t- the \"cpu\" command, followed by the id of the CPU, displays the RAM and the registers of the CPU\n");
+        printf("\t- the \"next\" command, followed by the id of the CPU, increments the PC registers and go to the next instructions\n");
+        printf("\t- the \"exit\" command, exit the game\n");
     }
     if (strcmp(option, "exit") == 0){
-	 /*in this option we should be able to exit the game*/
+        /*in this option we should be able to exit the game*/
+        exit(0);
     }
 }
