@@ -9,7 +9,7 @@ word extract(CPU * cpu){
     word pc = cpu->registers[6];
     wrd = (cpu->RAM[pc] | cpu->RAM[pc + 1] << 8);  
     printf("PC = %04x\n", pc);  
-    cpu->registers[6]+=1;
+    cpu->registers[6] += 2;
     return wrd;
 }
 
@@ -50,7 +50,7 @@ word instructionValue2(word wrd){
 /* Méthode que pour le Move */
 /* Return t1 */
 word instructionMoveType(word wrd){
-    return (wrd << 6) & 3;
+    return (wrd >> 6) & 3;
 }
 
 /* Return t2 */
