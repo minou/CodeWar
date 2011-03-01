@@ -41,7 +41,7 @@ word instructionMoveType2(word wrd);
 word instructionMoveValue2(word wrd);
 
 /* File instruction */
-void move(operande op1, operande op2);
+void move(CPU * cpu, operande op1, operande op2);
 
 /* File shell */
 void display_prompt();

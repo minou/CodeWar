@@ -4,7 +4,7 @@
 */
 
 /*how do we access the 2 word of the move???*/
-void move(operande op1, operande op2){
+void move(CPU * cpu, operande op1, operande op2){
      /*if the first operande is an direct value or an adress*/
      if( (op1.type == 4) || (op1.type == 5) ){
      /*then the last third bits of the word code the destination register's number*/
