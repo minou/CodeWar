@@ -3,6 +3,9 @@
 #include <stdio.h>
 
 void move(CPU * cpu, operande op1, operande op2){     
+    int C;
+    int N;
+    int Z = 0;
     if (op1.type == 4 || op1.type == 5){/*cas où t1 est une adresse ou une valeur immediate*/ 
         if (op2.type >= 0 && op2.type <=3){
             /*alors rrr(op1.value) codent le numero de registre(value) de la destination(op2)*/
@@ -31,9 +34,12 @@ void move(CPU * cpu, operande op1, operande op2){
         }
     }
     else {
-        printf("Erreur au niveau des types");
+        printf("Erreur au niveau des types\n");
         return;
     }
+    C = 0;
+    N = (op1.value >> 15);
+    if( op1.value == 0) Z = 1;
 }
 
 int get_value(CPU * cpu, operande op){
