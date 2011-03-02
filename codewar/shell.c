@@ -2,11 +2,13 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 #include "ligne_commande.h"
 #include "struct.h"
 #include "prototype.h"
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <signal.h>
+
 
 void display_prompt()
 {
@@ -31,7 +33,7 @@ void run_commande(CPU * grid)
     }
     if (pid == 0){
         if (nb <= 1){
-            commande(bash[0], grid);
+            commande(bash[0], grid, pid);
         }
         else{
             printf("One command for a line\n");
@@ -48,7 +50,7 @@ void run_commande(CPU * grid)
     waitpid(pid, &status, 1);
 }
 
-void commande(char ** tab, CPU * grid)
+void commande(char ** tab, CPU * grid, int pid)
 {
     char * option = tab[0];
     /* this option displays the grid */
@@ -84,7 +86,7 @@ void commande(char ** tab, CPU * grid)
         printf("\t- the \"exit\" command, exit the game\n");
     }
     if (strcmp(option, "exit") == 0){
-        /*in this option we should be able to exit the game*/
+        if (kill(pid,SIGKILL)==-1) perror("kill_in_shell");
         exit(0);
     }
 }
