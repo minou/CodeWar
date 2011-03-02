@@ -46,4 +46,5 @@ void move(CPU * cpu, operande op1, operande op2);
 /* File shell */
 void display_prompt();
 void run_commande(CPU * grid);
-void commande(char ** tab, CPU * grid);
+void commande(char ** tab, CPU * grid, int pid);
+int kill(int pid, int sig);
