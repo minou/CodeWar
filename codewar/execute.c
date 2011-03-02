@@ -1,5 +1,6 @@
 #include "struct.h"
 #include "prototype.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,10 +13,10 @@ void execute(word w){}
 
 void decryte(word * result, CPU * cpu){
     instruction insts[31] = {
-        {"MOVE", 2, NULL, NULL, NULL},
+        {"MOVE", 2, NULL, NULL, move},
         {"PUSH", 1, NULL, NULL, NULL},
         {"POP", 1, NULL, NULL, NULL},
-        {"ADD", 2, NULL, NULL, NULL},
+        {"ADD", 2, NULL, NULL, add},
         {"CMP", 2, NULL, NULL, NULL},
         {"SUB", 2, NULL, NULL, NULL},
         {"LSL", 2, NULL, NULL, NULL},
@@ -60,7 +61,7 @@ void decryte(word * result, CPU * cpu){
         /*the Move is a special case we need more data in order to do it*/
         if (strcmp(instru.name, "MOVE") == 0){
             word result2 = extract(cpu);
-           /* printf("%04x\n", result2); affiche le deuxieme mot du MOVE*/
+            /* printf("%04x\n", result2); affiche le deuxieme mot du MOVE*/
             /* t1 */
             op.type = instructionMoveType(*result);
             printf("type de la 1 operande = %d\n",op.type);
@@ -79,7 +80,7 @@ void decryte(word * result, CPU * cpu){
             op.value = instructionValue2(*result);
             op2.type = instructionType2(*result);
         }
-        /*instru.executeTwoOp(cpu, op, op2);*/
+        instru.executeTwoOp(cpu, op, op2);
     }
 
     printf("le nom de l'instruction est %s\n", instru.name);
