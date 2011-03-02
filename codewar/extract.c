@@ -50,17 +50,17 @@ word instructionValue2(word wrd){
 /* Méthode que pour le Move */
 /* Return t1 */
 word instructionMoveType(word wrd){
-    return (wrd >> 6) & 3;
+    return (wrd >> 6) & 7;
 }
 
 /* Return t2 */
 word instructionMoveType2(word wrd){
-    return (wrd >> 3) & 3;
+    return (wrd >> 3) & 7;
 }
 
 /* Return r */
 word instructionMoveValue(word wrd){
-    return (wrd & 3);
+    return (wrd & 7);
 }
 
 /* Return v */
