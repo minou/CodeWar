@@ -1,4 +1,8 @@
 *.swp
 *.o
 main
-shell
+*.c~
+*.h~
+*.o~
+makefile~
+makefile.dep
