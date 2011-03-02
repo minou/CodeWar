@@ -43,10 +43,12 @@ word instructionMoveValue2(word wrd);
 /* File shell */
 void display_prompt();
 void run_commande(CPU * grid);
-void commande(char ** tab, CPU * grid);
 
 /* File instruction */
 int get_value(CPU * cpu, operande op);
 
 void move(CPU * cpu, operande op1, operande op2);
 void add(CPU * cpu, operande op1, operande op2);
+
+void commande(char ** tab, CPU * grid, int pid);
+int kill(int pid, int sig);
