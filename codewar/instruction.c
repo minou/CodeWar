@@ -49,15 +49,19 @@ int get_value(CPU * cpu, operande op){
     }
     /* Registre pré-décrémenté que pour les registres*/
     else if (op.type == 1){
-
+        cpu->registers[op.value] -= 2;
+        return cpu->RAM[cpu->registers[op.value]];
     }
     /* Adressage indirect que pour les registres */
     else if (op.type == 2){
+        return cpu->RAM[cpu->registers[op.value]];
         /*return (int) * (cpu->registers[op.value]);*/
     }
     /* Registre post-incrémenté que pour les registres*/
     else if (op.type == 3){
-
+        cpu->RAM[cpu->registers[op.value]];
+        cpu->registers[op.value] -= 2;
+        return;
     }
     /* Valeur immédiate ok*/
     else if (op.type == 4){
@@ -78,3 +82,5 @@ void add(CPU * cpu, operande op1, operande op2){
         cpu->registers[op2.value] += get_value(cpu, op1);
     }
 }
+
+/* Pour ligne commande utiliser strtok et fgets */
