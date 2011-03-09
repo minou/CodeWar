@@ -46,9 +46,13 @@ void run_commande(CPU * grid);
 
 /* File instruction */
 int get_value(CPU * cpu, operande op);
+void addressing(CPU * cpu, operande op, int value);
 
 void move(CPU * cpu, operande op1, operande op2);
 void add(CPU * cpu, operande op1, operande op2);
+void push(CPU * cpu, operande op);
+void pop(CPU * cpu, operande op);
+void substract(CPU * cpu, operande op1, operande op2);
 
 void commande(char ** tab, CPU * grid, int pid);
 int kill(int pid, int sig);

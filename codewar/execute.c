@@ -14,11 +14,11 @@ void execute(word w){}
 void decryte(word * result, CPU * cpu){
     instruction insts[31] = {
         {"MOVE", 2, NULL, NULL, move},
-        {"PUSH", 1, NULL, NULL, NULL},
-        {"POP", 1, NULL, NULL, NULL},
+        {"PUSH", 1, NULL, push, NULL},
+        {"POP", 1, NULL, pop, NULL},
         {"ADD", 2, NULL, NULL, add},
         {"CMP", 2, NULL, NULL, NULL},
-        {"SUB", 2, NULL, NULL, NULL},
+        {"SUB", 2, NULL, NULL, substract},
         {"LSL", 2, NULL, NULL, NULL},
         {"LSR", 2, NULL, NULL, NULL},
         {"AND", 2, NULL, NULL, NULL},
