@@ -1,20 +1,39 @@
 #include "struct.h"
 #include "prototype.h"
-#include <stdlib.h>
-#include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
 
 /*In this file we choose randomly the position of the CPU in the grid
 * and the color
 */
+int random(int max){
+    int fd;
+    unsigned int alea;
+
+    fd = open("/dev/random", O_RDONLY);
+    if (fd == -1) {
+        perror("Open /dev/random");
+        return -1;
+    }
+    if (read(fd, &alea, sizeof(alea)) == -1){
+        perror("Read /dev/random");
+        return -1;
+    }
+    close(fd);
+    return alea % max;
+}
+
+
 
 int randomCPU(){
-    srand(time(NULL));
-    return rand()%NB_CPU;
+    return random(NB_CPU);
 }
 
 color randomColor(){
     color randColor;
-    srand(time(NULL));
-    randColor = rand()%65535;
+    randColor = random(65535);
     return randColor;
 }
