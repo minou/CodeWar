@@ -12,6 +12,7 @@ include makefile.dep
 
 clean:
 	rm *.o
+	rm history
 
 mrproper: clean
 	rm $(EXEC)

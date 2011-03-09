@@ -8,12 +8,24 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <signal.h>
+#include <fcntl.h>
 
 
 void display_prompt()
 {
     printf("%s", "CodeWar > ");
     fflush(stdout);
+}
+
+int history(char ** bash){
+    int fd;
+    fd = open("history", O_RDWR | O_CREAT, 0777);
+    if (fd == -1){
+        perror("Open_history");
+        return -1;
+    }
+    write(fd, strcat(*bash, "\n"), 20);
+    return 0;
 }
 
 void run_commande(CPU * grid)
@@ -34,6 +46,7 @@ void run_commande(CPU * grid)
     if (pid == 0){
         if (nb <= 1){
             commande(bash[0], grid, pid);
+            history(bash[0]);
         }
         else{
             printf("One command for a line\n");
