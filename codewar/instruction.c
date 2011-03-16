@@ -47,14 +47,16 @@ void addressing(CPU * cpu, operande op, int value){
 	cpu->registers[op.value] += 2;
 	cpu->RAM[cpu->registers[op.value]] = value;
       }
-      else  if(op2.type == 5){/*si la destination est une adresse*/
+      else  if(op.type == 5){/*si la destination est une adresse*/
 	
 	/*then the first four bites represents the destination cpu column*/
+	if (){
+	    
+	}
 	    
 	    
 	    
-	    
-	cpu->RAM[op2.value] = value;
+	cpu->RAM[op.value] = value;
       }
 }
 
