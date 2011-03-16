@@ -41,7 +41,13 @@ void addressing(CPU * cpu, operande op, int value){
 	  cpu->RAM[cpu->registers[op.value]] = value;
       }
       else if(op.type == 2){/*(Rn)*/
-	 cpu->RAM[cpu->registers[op.value]] = value;  
+	word adr = cpu->registers[op.value];
+	int line, column, value_adr;
+	column = adr >> 12;
+	line = (adr >> 8) & 4;
+	value_adr = adr & 8;
+	printf("Affichage du cpu %d, ligne %d, colonne %d, valeur %d\n", 16 * line + column,line, column, value_adr);
+	grid[16 * line + column].RAM[value_adr] = value;  
       }
       else if(op.type == 3){/*(Rn)+*/
 	cpu->registers[op.value] += 2;
@@ -50,15 +56,12 @@ void addressing(CPU * cpu, operande op, int value){
       else  if(op.type == 5){/*si la destination est une adresse*/
 	
 	/*then the first four bites represents the destination cpu column*/
-	if (){
-	    
-	}
-	    
-	    
-	    
+	      
 	cpu->RAM[op.value] = value;
       }
 }
+
+
 
 int get_value(CPU * cpu, operande op){
     /* Registre ok*/
@@ -72,7 +75,13 @@ int get_value(CPU * cpu, operande op){
     }
     /* Adressage indirect que pour les registres */
     else if (op.type == 2){
-        return cpu->RAM[cpu->registers[op.value]];
+	word adr = cpu->registers[op.value];
+	int line, column, value;
+	column = adr >> 12;
+	line = (adr >> 8) & 4;
+	value = adr & 8;
+	printf("Affichage du cpu %d, valeur %d\n", 16 * line + column, value);
+        return grid[16 * line + column].RAM[value];
     }
     /* Registre post-incrémenté que pour les registres*/
     else if (op.type == 3){

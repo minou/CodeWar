@@ -45,8 +45,8 @@ int open_load_File(char * file, CPU * cpu){
 
 void setColor(CPU * cpu, color c){
       /* Probleme il faut prendre la fin du prenier et le debut du deuxieme */
-    cpu->RAM[0] = c >> 8;
-    cpu->RAM[1] = c;
+    cpu->RAM[1] = c >> 8;
+    cpu->RAM[2] = c;
 }
 void setStack(CPU * cpu){
       cpu->registers[6] = 0x10;

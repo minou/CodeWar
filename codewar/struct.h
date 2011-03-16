@@ -49,3 +49,4 @@ typedef struct instruction{
     void (*executeOneOp)(CPU *, operande);
     void (*executeTwoOp)(CPU *, operande, operande);
 }instruction;
+extern CPU  grid [256];

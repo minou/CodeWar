@@ -45,7 +45,7 @@ color get_color(CPU * cpu)
 {
     color color;
     /* Probleme il faut prendre la fin du prenier et le debut du deuxieme */
-    color = (cpu->RAM[1] | cpu->RAM[0] << 8);
+    color = (cpu->RAM[2] | cpu->RAM[1] << 8);
     return color;
 }
 
