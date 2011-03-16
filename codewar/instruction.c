@@ -20,10 +20,6 @@ void move(CPU * cpu, operande op1, operande op2){
         if ((op2.type >= 0 && op2.type <= 3) || op2.type == 5){/*alors (v) le deuxieme mot (op2.value) code la valeur de destination*/
 	    int value = get_value(cpu, op1);
 	    addressing(cpu, op2, value);
-             if(op2.type == 5){/*si la destination est une adresse*/
-             /*op2.value c'est l'adresse mais pas la vrai, accès réel impossible*/  
-		  cpu->RAM[op2.value] = value;
-             }
         }
     }
     else {
@@ -50,6 +46,15 @@ void addressing(CPU * cpu, operande op, int value){
       else if(op.type == 3){/*(Rn)+*/
 	cpu->registers[op.value] += 2;
 	cpu->RAM[cpu->registers[op.value]] = value;
+      }
+      else  if(op2.type == 5){/*si la destination est une adresse*/
+	
+	/*then the first four bites represents the destination cpu column*/
+	    
+	    
+	    
+	    
+	cpu->RAM[op2.value] = value;
       }
 }
 
