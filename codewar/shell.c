@@ -86,9 +86,7 @@ void commande(char ** tab, CPU * grid, int pid)
     }
 
     if (strcmp(option, "next") == 0){
-        int nb;
-        nb = atoi(tab[1]);
-        next(&grid[nb]);
+        next();
     }
     /*this option display the list of the different commands available*/
     if ((strcmp(option, "help") == 0)){

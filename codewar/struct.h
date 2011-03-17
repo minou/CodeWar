@@ -5,6 +5,7 @@
 #define MEM_SIZE 256
 /* there are 8 registers in each CPU*/
 #define REG 8
+#define NB_CPU 256
 
 #define SIZE_BUFFER 15
 
@@ -49,4 +50,5 @@ typedef struct instruction{
     void (*executeOneOp)(CPU *, operande);
     void (*executeTwoOp)(CPU *, operande, operande);
 }instruction;
-extern CPU  grid [256];
+extern CPU grid[NB_CPU];
+extern CPU **list;

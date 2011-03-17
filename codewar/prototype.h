@@ -24,10 +24,9 @@ color randomColor();
 
 /* File extract */
 word extract(CPU * cpu);
-void next(CPU * cpu);
 
 /* File execute */
-void next(CPU * cpu);
+void next();
 void decryte(word * result, CPU * cpu);
 
 word instructionName(word * wrd);

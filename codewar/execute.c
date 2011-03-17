@@ -87,9 +87,11 @@ void decryte(word * result, CPU * cpu){
 }
 
 /* Permet de passer la l'instruction suivant et l'execute */
-void next(CPU * cpu){
-    /* Load register R6 or PC */
-    word result = extract(cpu);
-    /*printf("%04x\n", result); affiche le mot extrait*/
-    decryte(&result, cpu);
+void next(){
+    int i = 0;
+    while (list[i] != NULL){
+        /* Load register R6 or PC */
+        word result = extract(list[i]);
+        decryte(&result, list[i++]);
+    }
 }
