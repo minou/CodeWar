@@ -1,8 +1,5 @@
-move @1,r0
-move @2,r1
+move #0x1001,r0
+move #0x1002,r1
 
-move #2,r2
-move r0,(r2)
-
-move #3,r3
-move r1,(r3)
+move @1,(r0)
+move @2,(r1)

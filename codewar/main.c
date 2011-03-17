@@ -48,16 +48,19 @@ int main(int args , char ** argv)
             run_commande(grid);
         }
     }
-    else if (strcmp(argv[1], "-c")){
+    else if (strcmp(argv[1], "-c") == 0){
         int num = 0;
         int nb = atoi(argv[2]);
         i++;
         init_cpu(args, argv, i);
+        printf("Board at game start\n");
         display_grid(grid);
         while (num < nb){
             next(&grid[0]);
             num++;
         }
+        printf("Board at end of game (%d cycles done)\n", nb);
+        display_grid(grid);
     }
 
     return 0;

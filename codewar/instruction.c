@@ -46,8 +46,8 @@ void addressing(CPU * cpu, operande op, int value){
         int num = cpu->id;
         column = (adr >> 12) + (num % 16);
         line = ((adr >> 8) & 4) + (num / 16);
-        value_adr = adr & 8;
-        printf("Affichage du cpu %d, ligne %d, colonne %d, valeur %d, num %d\n", 16 * line + column,line, column, value_adr, num);
+        value_adr = adr & 255;
+        printf("Affichage du cpu %d, ard %d, ligne %d, colonne %d, valeur %d, num %d\n", 16 * line + column, adr, line, column, value_adr, num);
         grid[16 * line + column].RAM[value_adr] = value;  
     }
     else if(op.type == 3){/*(Rn)+*/
