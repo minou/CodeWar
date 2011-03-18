@@ -93,7 +93,7 @@ void commande(char ** tab, CPU * grid, int pid)
         printf("\t\t\tWelcome in the CodeWar's manuel\n");
         printf("\t- the \"grid\" command displays the game's board\n");
         printf("\t- the \"cpu\" command, followed by the id of the CPU, displays the RAM and the registers of the CPU\n");
-        printf("\t- the \"next\" command, followed by the id of the CPU, increments the PC registers and go to the next instructions\n");
+        printf("\t- the \"next\" command, increments the PC registers of all the CPU and go to the next instructions\n");
         printf("\t- the \"exit\" command, exit the game\n");
     }
     if (strcmp(option, "exit") == 0){

@@ -31,6 +31,20 @@ int init_cpu(int args, char ** argv, int i){
     return 0;
 }
 
+void help(){
+      printf("\n");
+      printf ("\033[31;40m");  
+      printf("%s\n", "Usage: ./main -option -programm");
+      printf("\n");
+      printf ("\033[36;40m"); 
+      printf("\t\t\tWelcome in the CodeWar's manuel\n");
+      printf ("\033[0m");
+      printf("\t- the \"-p\" option followed by any number of program you want\n");
+      printf("\t- the \"-c\" option followed by a number of cycle and the program(s)\n");
+      printf("\n"); 
+       
+}
+
 int main(int args , char ** argv)
 {
     char * option;
@@ -38,9 +52,14 @@ int main(int args , char ** argv)
 
     option = argv[1];
     if (option == NULL){
-        printf("%s\n", "Usage: ./main -programm");
-        return -1;
+      help();
+      return -1;
     }
+    if(args <= i){
+      help();
+      return -1;
+    }
+      
     init(grid);
 
     if (strcmp(option, "-p") == 0){
@@ -51,8 +70,13 @@ int main(int args , char ** argv)
         }
     }
     else if (strcmp(option, "-c") == 0){
-        int num = 0;
-        int nb = atoi(argv[2]);
+	    int num = 0;
+	    int nb = atoi(argv[2]);
+	if(args <= i + 1){
+	    help();
+	    return -1;
+	}
+
         init_cpu(args, argv, ++i);
         printf("Board at game start\n");
         display_grid(grid);
