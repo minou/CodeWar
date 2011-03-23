@@ -64,16 +64,16 @@ void decryte(word * result, CPU * cpu){
             /* printf("%04x\n", result2); affiche le deuxieme mot du MOVE*/
             /* t1 */
             op.type = instructionMoveType(*result);
-            printf("type de la 1 operande = %d\n",op.type);
+
             /* r */
             op.value = instructionMoveValue(*result);
-            printf("value de la 1 operande = %d\n",op.value);
+
             /* t2 */
             op2.type = instructionMoveType2(*result);
-            printf("type de la 2 operande = %d\n",op2.type);
+
             /* v */
             op2.value = instructionMoveValue2(result2);
-            printf("value de la 2 operande = %d\n",op2.value);
+
         }
         else{
             op.type = instructionType(*result);
