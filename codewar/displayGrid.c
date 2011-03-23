@@ -4,7 +4,7 @@
 #include "prototype.h"
 
 /* Méthode permettant d'afficher le plateau */
-void display_grid(CPU * grid)
+void display_grid()
 {
     int i = 0;
     int nb = 0;
@@ -44,7 +44,6 @@ void display_grid(CPU * grid)
 color get_color(CPU * cpu)
 {
     color color;
-    /* Probleme il faut prendre la fin du prenier et le debut du deuxieme */
     color = (cpu->RAM[2] | cpu->RAM[1] << 8);
     return color;
 }

@@ -1,5 +1,5 @@
 /* FIle displayGrid */
-void display_grid(CPU * grid);
+void display_grid();
 color get_color(CPU * cpu);
 int cmp_color(color color_cpu);
 
@@ -41,7 +41,7 @@ word instructionMoveValue2(word wrd);
 
 /* File shell */
 void display_prompt();
-void run_commande(CPU * grid);
+void run_command(CPU * grid);
 
 /* File instruction */
 int get_value(CPU * cpu, operande op);
@@ -53,5 +53,5 @@ void push(CPU * cpu, operande op);
 void pop(CPU * cpu, operande op);
 void substract(CPU * cpu, operande op1, operande op2);
 
-void commande(char ** tab, CPU * grid, int pid);
+void command(char ** tab, CPU * grid, int pid);
 int kill(int pid, int sig);

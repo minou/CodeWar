@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "ligne_commande.h"
 #include "struct.h"
 #include "prototype.h"
 #include <sys/types.h>
@@ -10,6 +9,7 @@
 #include <signal.h>
 #include <fcntl.h>
 
+char ** line_command;
 
 void display_prompt()
 {
@@ -28,12 +28,40 @@ int history(char ** bash){
     return 0;
 }
 
-void run_commande(CPU * grid)
+char *** extract_command()
 {
-    int nb, status, flag, pid;
+    char * line = malloc(256);
+    char * tmp;
+    int nb, i = 0;
+    line_command = malloc(sizeof(char *) * 10);
+    if (! fgets(line, sizeof(line)-1, stdin)) {
+        exit(0);
+    }
+    nb = strlen(line);
+    line = realloc(line, nb);
+    line[nb] = '\0';
+    line[nb - 1] = ' ';
+
+    tmp = strtok(line, " ");
+    line_command[i] = malloc(strlen(tmp));
+    strcpy(line_command[i], tmp);
+    i++;
+    tmp = strtok(NULL, " ");
+    while (tmp){
+        line_command[i] = malloc(strlen(tmp));
+        strcpy(line_command[i], tmp);
+        tmp = strtok(NULL, " ");
+        i++;
+    }
+    return &line_command;
+}
+
+void run_command(CPU * grid)
+{
+    int status, pid;
     char ***bash;
 
-    bash = ligne_commande(&flag, &nb);
+    bash = extract_command();
     if (bash == NULL){
         return;
     }
@@ -44,31 +72,23 @@ void run_commande(CPU * grid)
         return;
     }
     if (pid == 0){
-        if (nb <= 1){
-            commande(bash[0], grid, pid);
-            history(bash[0]);
-        }
-        else{
-            printf("One command for a line\n");
-        }
+        command(bash[0], grid, pid);
+        history(bash[0]);
     }
     else
     {
-        if (flag == 0){
-            waitpid(pid, &status, 0);
-        }
         waitpid(pid, &status, pid);
-        libere(bash);
+        waitpid(pid, &status, 0);
     }
     waitpid(pid, &status, 1);
 }
 
-void commande(char ** tab, CPU * grid, int pid)
+void command(char ** tab, CPU * grid, int pid)
 {
     char * option = tab[0];
     /* this option displays the grid */
     if (strcmp(option, "grid") == 0){
-        display_grid(grid);
+        display_grid();
     }
 
     /* this option displays CPU */

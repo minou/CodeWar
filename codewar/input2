@@ -1,3 +1,0 @@
-move #0x0100, r1
-add	r1, r0
-add	r1, r0

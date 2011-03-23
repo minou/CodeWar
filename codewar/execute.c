@@ -64,16 +64,12 @@ void decryte(word * result, CPU * cpu){
             /* printf("%04x\n", result2); affiche le deuxieme mot du MOVE*/
             /* t1 */
             op.type = instructionMoveType(*result);
-
             /* r */
             op.value = instructionMoveValue(*result);
-
             /* t2 */
             op2.type = instructionMoveType2(*result);
-
             /* v */
             op2.value = instructionMoveValue2(result2);
-
         }
         else{
             op.type = instructionType(*result);
@@ -82,8 +78,7 @@ void decryte(word * result, CPU * cpu){
         }
         instru.executeTwoOp(cpu, op, op2);
     }
-
-    printf("le nom de l'instruction est %s\n", instru.name);
+    printf("The name of instruction is : %s\n", instru.name);
 }
 
 /* Permet de passer la l'instruction suivant et l'execute */

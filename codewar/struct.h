@@ -37,7 +37,6 @@ enum regist{
     SP = R7
 };
 
-
 typedef struct operande{
     int type;
     int value;
@@ -50,5 +49,6 @@ typedef struct instruction{
     void (*executeOneOp)(CPU *, operande);
     void (*executeTwoOp)(CPU *, operande, operande);
 }instruction;
+
 extern CPU grid[NB_CPU];
 extern CPU **list;

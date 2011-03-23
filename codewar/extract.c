@@ -23,7 +23,6 @@ word instructionName(word * wrd){
 }
 
 word instructionType(word  wrd){
-    
     return (wrd >> 8) & 3;
 }
 

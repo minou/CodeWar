@@ -62,8 +62,6 @@ void addressing(CPU * cpu, operande op, int value){
     }
 }
 
-
-
 int get_value(CPU * cpu, operande op){
     /* Registre ok*/
     if (op.type == 0){
@@ -134,5 +132,3 @@ void substract(CPU * cpu, operande op1, operande op2){
         cpu->registers[op2.value] -= get_value(cpu, op1);
     }
 }
-
-/* Pour ligne commande utiliser strtok et fgets */

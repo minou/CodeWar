@@ -4,9 +4,8 @@
 
 
 /*In this file we initialize the grid of 256 CPU
-* in each CPU of this grid we initialize the memory and the registers
-*/
-
+ * in each CPU of this grid we initialize the memory and the registers
+ */
 
 
 /*initialization of the CPU memory*/
@@ -27,6 +26,7 @@ void setReg(CPU * cpu){
         i++;
     }
 }
+
 /*initialization of the grid*/
 int init(CPU * grid){
     int i = 0;
